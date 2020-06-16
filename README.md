@@ -13,7 +13,7 @@
 
 签到插件讨论请转至[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)。
 
-### [忍者云签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/173)
+### [忍者云签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/173)
 
 本脚本借鉴 [marvolo666 的通用 demo 模板](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)，提供设置用户名和密码方式自动登陆。
 
