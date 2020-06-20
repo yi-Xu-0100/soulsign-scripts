@@ -27,6 +27,14 @@
 
 签到插件讨论请转至[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)。
 
+### [好书友签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/185)
+
+本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
+
+本脚本内容讨论地址：[好书友签到脚本-gist](https://gist.github.com/yi-Xu-0100/910de5106ebc8497b6198ba366cccb97)
+
+签到插件讨论请转至[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)。
+
 ## build.zip
 
 个人使用的[魂签](https://github.com/inu1255/soulsign-chrome)扩展压缩包，主要是备份，和同步最新更新。
