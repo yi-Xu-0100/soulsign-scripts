@@ -21,7 +21,7 @@
 
 签到插件讨论请转至[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)。
 
-### [geekhub 签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/172)
+### [geekhub 签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/172)
 
 本脚本内容讨论地址：[geekhub 签到脚本-gist](https://gist.github.com/yi-Xu-0100/44d5d7199e029e61c0976902122c0900)
 
