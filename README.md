@@ -5,7 +5,7 @@
 ## [scripts 集合](https://soulsign.inu1255.cn/?uid=1176)
 
 
-### [阅次元签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/174)
+### [阅次元签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/174)
 
 本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
 
