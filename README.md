@@ -35,6 +35,14 @@
 
 签到插件讨论请转至[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)。
 
+### [聚创签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/186)
+
+本脚本需要登陆后的 cookie 信息完成签到。
+
+本脚本内容讨论地址：[聚创签到脚本-gist](https://gist.github.com/yi-Xu-0100/9a681d4d5a7a4c326e9f0c66e9bc5e47)
+
+签到插件讨论请转至：[官方 issue ](https://github.com/inu1255/soulsign-chrome/issues)
+
 ## build.zip
 
 个人使用的[魂签](https://github.com/inu1255/soulsign-chrome)扩展压缩包，主要是备份，和同步最新更新。
