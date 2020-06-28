@@ -34,7 +34,7 @@
 
 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
 
-### [聚创签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/186)
+### [聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)
 
 本脚本需要登陆后的 cookie 信息完成签到。
 
