@@ -42,6 +42,12 @@
 
 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
 
+### [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)
+
+本脚本内容讨论地址：[力扣中国签到脚本-gist](https://gist.github.com/yi-Xu-0100/17426fba8db96f4501cecbd5258284e0)
+
+签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+
 ## build.zip
 
 个人使用的[魂签](https://github.com/inu1255/soulsign-chrome)扩展压缩包，主要是备份，和同步最新更新。
