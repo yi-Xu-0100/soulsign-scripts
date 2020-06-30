@@ -18,7 +18,7 @@
 |[好书友签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/185)|帐号密码自动登陆(MD5 密码)|无|
 |[聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)|无|cookies 签到|
 |[力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)|无|无|
-|[GORPG 签到脚本 V1.0.0(https://soulsign.inu1255.cn/scripts/192)|无|无|
+|[GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)|无|无|
 
 ## build.zip
 
