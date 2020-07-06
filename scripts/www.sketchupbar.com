@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              sketchupbar
-// @namespace         https://soulsign.inu1255.cn/scripts/192
-// @version           1.0.2
+// @namespace         https://soulsign.inu1255.cn/scripts/198
+// @version           1.0.4
 // @author            yi-Xu-0100
 // @loginURL          https://www.sketchupbar.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/sketchupbar
@@ -39,9 +39,9 @@ exports.run = async function(param) {
         let bb=todaybb[1] - originbb[1];
         if(bb) rewards = rewards + bb + " 吧币，";
         let resp2 = await axios.post("https://www.sketchupbar.com/plugin.php?id=k_misign:get_zhuanpan");
-        
         while(/200/.test(resp2.data.code)){
             rewards = rewards + resp2.data.name;
+            resp2 = await axios.post("https://www.sketchupbar.com/plugin.php?id=k_misign:get_zhuanpan");
         }
         return rewards;
     }
