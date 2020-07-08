@@ -10,16 +10,16 @@
 
 统一安装位置：[yi-Xu-0100 创作的魂签脚本](https://soulsign.inu1255.cn/?uid=1176)
 
-|脚本名称|参数|cookies|
-|:--------:|:--------:|:--------:|
-|[阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)|帐号密码自动登陆(MD5 密码)|无|
-|[忍者云签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/173)|帐号密码自动登陆|无|
-|[geekhub 签到脚本 V1.0.9](https://soulsign.inu1255.cn/scripts/172)|无|无|
-|[好书友签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/185)|帐号密码自动登陆(MD5 密码)|无|
-|[聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)|无|cookies 签到|
-|[力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)|无|无|
-|[GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)|无|无|
-|[sketchupbar 签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/198)|无|无|
+|                                脚本名称                                |            参数            |   cookies    |
+| :--------------------------------------------------------------------: | :------------------------: | :----------: |
+|    [阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)    | 帐号密码自动登陆(MD5 密码) |      无      |
+|    [忍者云签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/173)    |      帐号密码自动登陆      |      无      |
+|   [geekhub 签到脚本 V1.0.9](https://soulsign.inu1255.cn/scripts/172)   |             无             |      无      |
+|    [好书友签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/185)    | 帐号密码自动登陆(MD5 密码) |      无      |
+|     [聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)     |             无             | cookies 签到 |
+|   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |             无             |      无      |
+|    [GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)    |             无             |      无      |
+| [sketchupbar 签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/198) |             无             |      无      |
 
 ## build.zip
 
