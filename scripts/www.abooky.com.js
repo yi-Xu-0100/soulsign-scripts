@@ -11,8 +11,8 @@
 // @param            pwd 密码
 // ==/UserScript==
 
-exports.run = async function(param) {
-let resp = await axios.get("https://www.abooky.com/plugin.php?id=k_misign:sign");
+exports.run = async function (param) {
+    let resp = await axios.get("https://www.abooky.com/plugin.php?id=k_misign:sign");
     let signhtml = resp.data;
     if (signhtml.includes("您的签到排名"))
         return "重复签到";
@@ -22,19 +22,19 @@ let resp = await axios.get("https://www.abooky.com/plugin.php?id=k_misign:sign")
     if (/需要先登录/.test(data)) throw "未登录";
     let resp1 = await axios.get("https://www.abooky.com/plugin.php?id=k_misign:sign");
     let signhtml1 = resp1.data;
-    if (signhtml1.includes("您的签到排名")){
+    if (signhtml1.includes("您的签到排名")) {
         let result1 = signhtml1.match(/<input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/);
-        return "积分奖励: "+ result1[1] + " 银币";
+        return "积分奖励: " + result1[1] + " 银币";
     }
     else throw "未成功签到";
 };
 
-exports.check = async function(param) {
-var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=usergroup",{maxRedirects: 0});
+exports.check = async function (param) {
+    var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=usergroup", { maxRedirects: 0 });
     if (/我的用户组/.test(resp.data))
         return true;
-    else{
-        var resp = await axios.get("https://www.abooky.com/member.php?mod=logging&action=login",{maxRedirects: 0});
+    else {
+        var resp = await axios.get("https://www.abooky.com/member.php?mod=logging&action=login", { maxRedirects: 0 });
         let loginhash = resp.data.match(/<div id="layer_login_(.*?)"/);
         let formhash = resp.data.match(/<input type="hidden" name="formhash" value="(.*?)"/);
         var resp = await axios.post("https://www.abooky.com/member.php?mod=logging&action=login&loginsubmit=yes&inajax=1&loginhash=" + loginhash[1],
@@ -49,12 +49,12 @@ var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=userg
             },
             {
                 transformRequest: [function (data) {
-                let ret = ''
-                for (let it in data) {
-                  ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-                }
-                return ret.substr(0,ret.length-1);
-              }],
+                    let ret = ''
+                    for (let it in data) {
+                        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+                    }
+                    return ret.substr(0, ret.length - 1);
+                }],
                 headers: {
                     "Origin": "https://www.abooky.com/",
                     "Upgrade-Insecure-Requests": "1",
@@ -62,7 +62,7 @@ var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=userg
                 }
             });
         if (/errorhandle/.test(resp.data)) throw resp.data.match(/errorhandle_\('(.*?)',/)[1];
-        var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=usergroup",{maxRedirects: 0});
+        var resp = await axios.get("https://www.abooky.com/home.php?mod=spacecp&ac=usergroup", { maxRedirects: 0 });
         return /我的用户组/.test(resp.data) ? true : false;
     }
 };

@@ -9,14 +9,14 @@
 // @domain            api.live.bilibili.com
 // ==/UserScript==
 
-exports.run = async function(param) {
-var { data } = await axios.get('https://api.live.bilibili.com/sign/doSign');
+exports.run = async function (param) {
+    var { data } = await axios.get('https://api.live.bilibili.com/sign/doSign');
     if (data.code == 0) return data.data.text;
     if (data.code == 1011040) return data.message;
     throw data.message;
 };
 
-exports.check = async function(param) {
-var { data } = await axios.get('https://api.live.bilibili.com/relation/v1/Feed/heartBeat');
+exports.check = async function (param) {
+    var { data } = await axios.get('https://api.live.bilibili.com/relation/v1/Feed/heartBeat');
     return data.code === 0;
 };

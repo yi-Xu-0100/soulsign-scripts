@@ -9,8 +9,8 @@
 // @domain            wenku.baidu.com
 // ==/UserScript==
 
-exports.run = async function(param) {
-var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
+exports.run = async function (param) {
+	var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
 		headers: {
 			"Referer": "https://wenku.baidu.com/task/browse/daily"
 		}
@@ -20,8 +20,8 @@ var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
 	throw JSON.stringify(data)
 };
 
-exports.check = async function(param) {
-var { data } = await axios.get("https://wenku.baidu.com/xpage/form/getform?id=tob_home_left", {
+exports.check = async function (param) {
+	var { data } = await axios.get("https://wenku.baidu.com/xpage/form/getform?id=tob_home_left", {
 		headers: {
 			"Referer": "https://wenku.baidu.com/task/browse/daily"
 		}

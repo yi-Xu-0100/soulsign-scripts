@@ -10,8 +10,8 @@
 // @grant            cookie
 // ==/UserScript==
 
-exports.run = async function(param) {
-var userinfo = await getCookie('https://www.scjuchuang.com/index', 'userinfo');
+exports.run = async function (param) {
+    var userinfo = await getCookie('https://www.scjuchuang.com/index', 'userinfo');
     var { data } = await axios.post('https://www.scjuchuang.com/intergralSigin/signin',
         {
             "user_id": JSON.parse(userinfo).user_id,
@@ -23,17 +23,17 @@ var userinfo = await getCookie('https://www.scjuchuang.com/index', 'userinfo');
                 "Referer": "https://www.scjuchuang.com/index"
             }
         });
-    if(/签到成功/.test(data.msg)) return "今日获得 " + data.data.integral + " 积分,已连续签到 " + data.data.continue_count + " 天";
-    if(/今日已签到/.test(data.msg)) return "重复签到";
-    if(/长时间未操作,请重新登录/.test(data.msg)){
+    if (/签到成功/.test(data.msg)) return "今日获得 " + data.data.integral + " 积分,已连续签到 " + data.data.continue_count + " 天";
+    if (/今日已签到/.test(data.msg)) return "重复签到";
+    if (/长时间未操作,请重新登录/.test(data.msg)) {
         var { data } = await axios.get('https://www.scjuchuang.com/index');
-        if(!/进入会员中心/.test(data)) throw "请登录";
+        if (!/进入会员中心/.test(data)) throw "请登录";
         var { data } = await axios.get('https://www.scjuchuang.com/intergralSigin/index');
         return /已签到/.test(data) ? "重复签到." : data;
-    }else throw data;
+    } else throw data;
 };
 
-exports.check = async function(param) {
-var { data } = await axios.get('https://www.scjuchuang.com/index');
+exports.check = async function (param) {
+    var { data } = await axios.get('https://www.scjuchuang.com/index');
     return /进入会员中心/.test(data) ? true : false;
 };

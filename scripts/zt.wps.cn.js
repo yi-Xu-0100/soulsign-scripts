@@ -9,8 +9,8 @@
 // @domain            zt.wps.cn
 // ==/UserScript==
 
-exports.run = async function() {
-var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_question', { maxRedirects: 0, validateStatus: s => true });
+exports.run = async function () {
+    var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_question', { maxRedirects: 0, validateStatus: s => true });
     if (status == 302) throw '需要登录';
     let answer = 1;
     for (let i = 0; i < data.data.options.length; i++) {
@@ -28,7 +28,7 @@ var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_
     if (data.result != 'ok') throw data.msg;
 };
 
-exports.check = async function() {
-var { data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/sign_up?sid=0&from=&csource=');
+exports.check = async function () {
+    var { data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/sign_up?sid=0&from=&csource=');
     return data.msg == '已参加挑战' || data.result == 'ok';
 };
