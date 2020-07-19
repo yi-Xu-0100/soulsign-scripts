@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              什么值得买
 // @namespace         https://soulsign.inu1255.cn/scripts/206
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://zhiyou.smzdm.com/user/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/什么值得买
