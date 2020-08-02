@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              geekhub
 // @namespace         https://soulsign.inu1255.cn/scripts/172
-// @version           1.0.9
+// @version           1.1.0
 // @author            yi-Xu-0100
 // @loginURL          https://geekhub.com/users/sign_in
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub
@@ -14,7 +14,7 @@ exports.run = async function (param) {
     if (resp.data.includes("今日已签到")) return "重复签到";
     if (resp.data.includes("您需要登录后才能继续")) throw "未登录";
     let result = resp.data.match(/<meta name="csrf-token" content="(.*?)"/);
-    let originGbit = resp.data.match(/<div class="w-4\/12">\s+<div>(.*?)<\/div>/);
+    let originGbit = resp.data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/);
     var resp = await axios.post('https://geekhub.com/checkins/start',
         {
             "_method": "post",
@@ -36,7 +36,7 @@ exports.run = async function (param) {
             }
         });
     if (/今日已签到/.test(resp.data)) {
-        let todayGbit = resp.data.match(/<div class="w-4\/12">\s+<div>(.*?)<\/div>/);
+        let todayGbit = resp.data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/);
         return "今日获得 " + (todayGbit[1] - originGbit[1]) + " Gbit";
     }
     else throw (/您需要登录后才能继续/.test(resp.data)) ? "未登录" : "未知错误";
