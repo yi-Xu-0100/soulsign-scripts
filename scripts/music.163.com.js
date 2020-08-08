@@ -20,6 +20,6 @@ exports.run = async function () {
 };
 
 exports.check = async function () {
-    var { data } = await axios.get('http://music.163.com/api/point/dailyTask?type=1');
-    return data.code == 200 || data.code == -2;
+    var { data } = await axios.get('https://music.163.com/');
+    return !(/GUser={}/.test(data));
 };
