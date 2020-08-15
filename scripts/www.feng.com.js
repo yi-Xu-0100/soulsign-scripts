@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              威锋网
 // @namespace         https://soulsign.inu1255.cn/scripts/235
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://www.feng.com/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/威锋网
@@ -25,7 +25,12 @@ exports.run = async function (param) {
                     "WDQKt2+dxMxPlIA4Wz5yf9l2x4N3rKqe65uuHK/Bejny5n6HnQFQ/1M4IAalbcTwRCmIXqT4sbZkc9yl1tAlfA=="
             }
         });
-    return data.status.message;
+    if (data.status.message != "success") {
+        return data.status.message;
+    } else {
+        return `获得经验${data.data.getWeTicket}点` +
+            ((data.data.extraWeTicket != "0") ? `，额外经验 ${data.data.extraWeTicket} 点` : "");
+    }
 };
 
 exports.check = async function (param) {

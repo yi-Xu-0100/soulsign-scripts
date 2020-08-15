@@ -22,7 +22,7 @@
 | [sketchupbar 签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
-|    [威锋网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/235)    |              无               | 获取 cookie |
+|    [威锋网签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/235)    |              无               | 获取 cookie |
 
 ## build.zip
 
