@@ -1,7 +1,7 @@
 ## soulsign-scripts
 
-<a href="https://github.com/yi-Xu-0100/soulsign-scripts"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts"> </a>
-<a href="https://github.com/yi-Xu-0100/soulsign-scripts/blob/master/LICENSE"> <img alt="GitHub" src="https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts"> </a>
+[![GitHub last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
+[![GitHub license](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
 
@@ -26,6 +26,7 @@
 |  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
 |    [威锋网签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/235)    |              无               | 获取 cookie |
+|    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
 
 ## build.zip
 
@@ -37,3 +38,7 @@
 + 感谢 [inu1255](https://github.com/inu1255) 创作的 [脚本](https://soulsign.inu1255.cn/?uid=1035)！
 + 感谢 [Vicrack](https://github.com/ViCrack) 创作的 [鱼 C 论坛脚本](https://soulsign.inu1255.cn/scripts/167)！
 + 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)！
+
+## license
+
+[MIT](./LICENSE)
