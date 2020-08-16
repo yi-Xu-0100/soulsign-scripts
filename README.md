@@ -1,7 +1,7 @@
 ## soulsign-scripts
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
-[![GitHub license](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](./LICENSE)
+[![GitHub license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
 
