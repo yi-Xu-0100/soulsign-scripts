@@ -36,9 +36,10 @@
 ## 鸣谢
 
 + 感谢 [inu1255](https://github.com/inu1255) 创作的开源签到插件——[魂签](https://github.com/inu1255/soulsign-chrome)！
-+ 感谢 [inu1255](https://github.com/inu1255) 创作的 [脚本](https://soulsign.inu1255.cn/?uid=1035)！
++ 感谢 [inu1255](https://github.com/inu1255) 创作的 [众多脚本](https://soulsign.inu1255.cn/?uid=1035)！
 + 感谢 [Vicrack](https://github.com/ViCrack) 创作的 [鱼 C 论坛脚本](https://soulsign.inu1255.cn/scripts/167)！
-+ 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)！
++ 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板脚本](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)！
++ 感谢 [hithy123](https://github.com/hithy123)创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225)!
 
 ## license
 
