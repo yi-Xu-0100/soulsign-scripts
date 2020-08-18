@@ -27,6 +27,7 @@
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
 |    [威锋网签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/235)    |              无               | 获取 cookie |
 |    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
+|   [百度文库签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 
 ## build.zip
 
