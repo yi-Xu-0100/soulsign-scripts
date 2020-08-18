@@ -29,9 +29,14 @@
 |    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
 |   [百度文库签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 
-## build.zip
+## 压缩包(build.zip)
 
 个人使用的 [魂签](https://github.com/inu1255/soulsign-chrome) 扩展压缩包，主要是备份，和同步更新。
+
+### **注意事项：**
+
+1. 本仓库发布的 releases 版本均为个人打包完成，个人打包仓库见 [个人 Fork 的魂签仓库](https://github.com/yi-Xu-0100/soulsign-chrome)。
+2. 安全问题请自行斟酌，安装方式请使用开发者模式加载压缩包解压后的文件夹。
 
 ## 鸣谢
 
@@ -39,8 +44,8 @@
 + 感谢 [inu1255](https://github.com/inu1255) 创作的 [众多脚本](https://soulsign.inu1255.cn/?uid=1035)！
 + 感谢 [Vicrack](https://github.com/ViCrack) 创作的 [鱼 C 论坛脚本](https://soulsign.inu1255.cn/scripts/167)！
 + 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板脚本](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)！
-+ 感谢 [hithy123](https://github.com/hithy123)创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225)!
++ 感谢 [hithy123](https://github.com/hithy123) 创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225)!
 
-## license
+## License
 
 [MIT](./LICENSE)
