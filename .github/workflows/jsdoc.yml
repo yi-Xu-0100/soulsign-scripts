@@ -10,20 +10,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-    - uses: actions/checkout@v2
+      - name: Checkout code
+      - uses: actions/checkout@v2
 
-    - name: Build
-      run: andstor/jsdoc-action@v1
-      with:
-        source_dir: ./scripts
-        output_dir: ./docs
-        config_file: conf.json
-        template: minami
-        front_page: README.md
+      - name: Build
+        run: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./scripts
+          output_dir: ./docs
+          config_file: conf.json
+          template: minami
+          front_page: README.md
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./docs
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs
