@@ -1,12 +1,6 @@
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": [
-            "jsdoc"
-        ]
-    },
     "templates": {
-        "minami": {
+        "./node_modules/minami": {
             "staticFiles": {
                 "include": [
                     "./README.md",
