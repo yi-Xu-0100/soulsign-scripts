@@ -1,6 +1,6 @@
 ## soulsign-scripts
 
-[![workflows status](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/GitHub%20pages/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3A%22GitHub+pages%22)
+[![workflows status](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3A%22GitHub+pages%22)
 [![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
 [![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/master/LICENSE)
@@ -50,4 +50,4 @@
 
 ## License
 
-[MIT](https://github.com/yi-Xu-0100/soulsign-scripts/blob/master/LICENSE)
+[MIT](./LICENSE)

@@ -1,7 +1,21 @@
 {
     "tags": {
         "allowUnknownTags": true,
-        "dictionaries": ["jsdoc"]
+        "dictionaries": [
+            "jsdoc"
+        ]
     },
-    "plugins": ["plugins/markdown"]
+    "templates": {
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./README.md",
+                    "./LICENCE"
+                ]
+            }
+        }
+    },
+    "plugins": [
+        "plugins/markdown"
+    ]
 }
