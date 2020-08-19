@@ -1,14 +1,4 @@
 {
-    "templates": {
-        "./node_modules/minami": {
-            "staticFiles": {
-                "include": [
-                    "./README.md",
-                    "./LICENSE"
-                ]
-            }
-        }
-    },
     "plugins": [
         "plugins/markdown"
     ],

@@ -22,6 +22,11 @@ jobs:
           template: minami
           front_page: README.md
 
+      - name: Copy static files
+        run: |
+          cp ./LICENSE ./docs/
+          cp ./README.md ./docs/
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

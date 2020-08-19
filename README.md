@@ -3,7 +3,7 @@
 [![workflows status](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
 [![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
-[![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/master/LICENSE)
+[![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
 
@@ -50,4 +50,4 @@
 
 ## License
 
-[MIT](https://github.com/yi-Xu-0100/soulsign-scripts/blob/master/LICENSE)
+[MIT](./LICENSE)
