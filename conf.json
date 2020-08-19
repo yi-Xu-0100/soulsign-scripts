@@ -6,7 +6,7 @@
         ]
     },
     "templates": {
-        "default": {
+        "minami": {
             "staticFiles": {
                 "include": [
                     "./README.md",
