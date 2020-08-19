@@ -1,3 +1,7 @@
 {
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+    },
     "plugins": ["plugins/markdown"]
 }
