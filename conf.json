@@ -10,12 +10,15 @@
             "staticFiles": {
                 "include": [
                     "./README.md",
-                    "./LICENCE"
+                    "./LICENSE"
                 ]
             }
         }
     },
     "plugins": [
         "plugins/markdown"
-    ]
+    ],
+    "opts": {
+        "encoding": "utf8"
+    }
 }
