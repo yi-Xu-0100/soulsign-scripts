@@ -51,9 +51,9 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>本脚本借鉴 <a href="https://soulsign.inu1255.cn/scripts/15">inu1255 的百度文库签到脚本</a>，更改了检查在线逻辑。
-脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a>
-签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
+            <div class="description"><p>本脚本借鉴 <a href="https://soulsign.inu1255.cn/scripts/15">inu1255 的百度文库签到脚本</a>，更改了检查在线逻辑。</p>
+<pre><code>         + 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+         + 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)</code></pre></div>
         
 
         
@@ -114,6 +114,249 @@
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    wenku.baidu.com
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/239
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://passport.baidu.com/v2/?login
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
 
 
 
@@ -162,7 +405,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed Aug 19 2020 00:45:48 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed Aug 19 2020 01:15:06 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
