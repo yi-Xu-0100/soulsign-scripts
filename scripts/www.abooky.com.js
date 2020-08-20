@@ -8,8 +8,31 @@
 // @expire            1200000
 // @domain            www.abooky.com
 // @param            name 账户
-// @param            pwd 密码
+// @param            pwd 加密密码
 // ==/UserScript==
+
+/**
+ * @file 阅次元签到脚本
+ * @author yi-Xu-0100
+ * @author Vicrack
+ * @version 1.0.5
+ */
+
+/**
+ * @module 阅次元签到脚本
+ * @description 本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
+ * 
+ * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * 
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = www.abooky.com] - 请求的域名
+ * @param {string} [expire = 1200000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/174] - 脚本主页
+ * @param {string} [loginURL = https://www.abooky.com/member.php?mod=logging&action=login] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到] - 脚本更新链接
+ * @param {string} name - 账户
+ * @param {string} pwd - 加密密码
+ */
 
 exports.run = async function (param) {
     let resp = await axios.get("https://www.abooky.com/plugin.php?id=k_misign:sign");

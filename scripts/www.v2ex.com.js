@@ -8,6 +8,23 @@
 // @expire            360000
 // @domain            www.v2ex.com
 // ==/UserScript==
+
+/**
+ * @file v2ex签到脚本
+ * @author inu1255
+ * @version 1.0.8
+ */
+
+/**
+ * @module v2ex签到脚本
+ * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造。
+ * @param {string|string[]} [domain = www.v2ex.com] - 请求的域名
+ * @param {string} [expire = 360000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/1] - 脚本主页
+ * @param {string} [loginURL = https://www.v2ex.com/signin] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/v2ex签到] - 脚本更新链接
+ */
+
 exports.run = async function (param) {
     var defaultheaders = { "referer": "https://www.v2ex.com/", "upgrade-insecure-requests": 1 };
     var ret = await axios.get('https://www.v2ex.com/mission/daily', { headers: defaultheaders });

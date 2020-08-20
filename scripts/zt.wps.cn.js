@@ -9,6 +9,22 @@
 // @domain            zt.wps.cn
 // ==/UserScript==
 
+/**
+ * @file wps打卡领会员签到脚本
+ * @author inu1255
+ * @version 1.0.3
+ */
+
+/**
+ * @module wps打卡领会员签到脚本
+ * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造，现在该脚本**已失效**！
+ * @param {string|string[]} [domain = zt.wps.cn] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/7] - 脚本主页
+ * @param {string} [loginURL = https://zt.wps.cn/2018/clock_in] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/wps打卡领会员] - 脚本更新链接
+ */
+
 exports.run = async function () {
     var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_question', { maxRedirects: 0, validateStatus: s => true });
     if (status == 302) throw '需要登录';

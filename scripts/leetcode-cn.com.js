@@ -9,6 +9,24 @@
 // @domain            leetcode-cn.com
 // ==/UserScript==
 
+/**
+ * @file 力扣中国签到脚本
+ * @author yi-Xu-0100
+ * @version 1.0.2
+ */
+
+/**
+ * @module 力扣中国签到脚本
+ * @description  脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * 
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = leetcode-cn.com] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/192] - 脚本主页
+ * @param {string} [loginURL = https://leetcode-cn.com/] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/力扣中国] - 脚本更新链接
+ */
+
 exports.run = async function (param) {
     var defaultHeaders = { "Origin": "https://leetcode-cn.com/", "Referer": "https://leetcode-cn.com/points/" }
     var { data } = await axios.post('https://leetcode-cn.com/graphql/',

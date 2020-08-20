@@ -9,6 +9,24 @@
 // @domain            geekhub.com
 // ==/UserScript==
 
+/**
+ * @file geekhub签到脚本
+ * @author yi-Xu-0100
+ * @version 1.1.1
+ */
+
+/**
+ * @module geekhub签到脚本
+ * @description  脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * 
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = geekhub.com] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/172] - 脚本主页
+ * @param {string} [loginURL = https://geekhub.com/users/sign_in] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub] - 脚本更新链接
+ */
+
 exports.run = async function (param) {
     let resp = await axios.get("https://geekhub.com/checkins");
     if (resp.data.includes("今日已签到")) return "重复签到";

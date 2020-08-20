@@ -9,6 +9,27 @@
 // @domain            music.163.com
 // ==/UserScript==
 
+/**
+ * @file 网易云音乐签到脚本
+ * @author yi-Xu-0100
+ * @author inu1255
+ * @version 1.0.4
+ */
+
+/**
+ * @module 网易云音乐签到脚本
+ * @description 本脚本借鉴 [inu1255 的网易云音乐签到脚本](https://soulsign.inu1255.cn/scripts/3)，更改了检查在线逻辑和签到反馈消息。
+ * 
+ * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * 
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = music.163.com] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/233] - 脚本主页
+ * @param {string} [loginURL = https://music.163.com/#/login] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/网易云音乐] - 脚本更新链接
+ */
+
 exports.run = async function () {
     // 移动端签到（10 云贝）
     var point = 0;

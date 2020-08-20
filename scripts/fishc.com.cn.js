@@ -9,6 +9,22 @@
 // @domain            fishc.com.cn
 // ==/UserScript==
 
+/**
+ * @file 鱼C论坛签到脚本
+ * @author ViCrack
+ * @version 1.0.2
+ */
+
+/**
+ * @module 鱼C论坛签到脚本
+ * @description 本脚本是 [ViCrack](https://github.com/ViCrack) 所创造。
+ * @param {string|string[]} [domain = fishc.com.cn] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/167] - 脚本主页
+ * @param {string} [loginURL = https://fishc.com.cn] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/ViCrack/鱼C论坛] - 脚本更新链接
+ */
+
 exports.run = async function (param) {
     // 签到的页面
     let resp = await axios.get("https://fishc.com.cn/plugin.php?id=k_misign:sign");

@@ -10,6 +10,25 @@
 // @grant            cookie
 // ==/UserScript==
 
+/**
+ * @file 聚创签到脚本
+ * @author yi-Xu-0100
+ * @version 1.0.4
+ */
+
+/**
+ * @module 聚创签到脚本
+ * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * 
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = www.scjuchuang.com] - 请求的域名
+ * @param {string|string[]} [grant = cookie] - 脚本需要的权限
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/186] - 脚本主页
+ * @param {string} [loginURL = https://www.scjuchuang.com/login/index] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/聚创] - 脚本更新链接
+ */
+
 exports.run = async function (param) {
     var userinfo = await getCookie('https://www.scjuchuang.com/index', 'userinfo');
     var { data } = await axios.post('https://www.scjuchuang.com/intergralSigin/signin',
