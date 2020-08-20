@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>geekhub.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">geekhub.com.js</h1>
     
 
     
@@ -40,52 +40,60 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.3
+// @name              geekhub
+// @namespace         https://soulsign.inu1255.cn/scripts/172
+// @version           1.1.1
 // @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+// @loginURL          https://geekhub.com/users/sign_in
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub
 // @expire            900000
-// @domain            wenku.baidu.com
+// @domain            geekhub.com
 // ==/UserScript==
 
 /**
- * @file 百度文库签到脚本
+ * @file geekhub签到脚本
  * @author yi-Xu-0100
- * @author inu1255
- * @version 1.0.3
+ * @version 1.1.1
  */
 
 /**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * @module geekhub签到脚本
+ * @description  脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  * 
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
+ * @param {string|string[]} [domain = geekhub.com] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/172] - 脚本主页
+ * @param {string} [loginURL = https://geekhub.com/users/sign_in] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub] - 脚本更新链接
  */
 
 exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
-        }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
+    let resp = await axios.get("https://geekhub.com/checkins");
+    if (resp.data.includes("今日已签到")) return "重复签到";
+    if (resp.data.includes("您需要登录后才能继续")) throw "未登录";
+    let result = resp.data.match(/&lt;meta name="csrf-token" content="(.*?)"/);
+    let originGbit = resp.data.match(/&lt;div class="w-3\/12">\s+&lt;div>(\d*)&lt;\/div>/) ||
+        resp.data.match(/&lt;div class="flex-1 text-center">\s+&lt;div>(\d*)&lt;\/div>\s+&lt;div>Gbit/);
+    let resp1 = await axios.post('https://geekhub.com/checkins/start',
+        "_method=post&amp;authenticity_token=" + encodeURIComponent(result[1]),
+        {
+            headers: {
+                "Origin": "https://geekhub.com",
+                "Referer": "https://geekhub.com/checkins"
+            }
+        });
+    if (/今日已签到/.test(resp1.data)) {
+        let todayGbit = resp1.data.match(/&lt;div class="w-3\/12">\s+&lt;div>(\d*)&lt;\/div>/) ||
+            resp1.data.match(/&lt;div class="flex-1 text-center">\s+&lt;div>(\d*)&lt;\/div>\s+&lt;div>Gbit/);
+        return "今日获得 " + (todayGbit[1] - originGbit[1]) + " Gbit";
+    } else throw (/您需要登录后才能继续/.test(resp1.data)) ? "未登录" : "签到失败";
 };
 
 exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
+    let resp = await axios.get("https://geekhub.com/checkins");
+    return !(/您需要登录后才能继续/.test(resp.data));
+};</code></pre>
         </article>
     </section>
 

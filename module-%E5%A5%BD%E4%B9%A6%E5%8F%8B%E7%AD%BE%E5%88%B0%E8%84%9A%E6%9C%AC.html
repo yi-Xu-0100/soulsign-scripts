@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>百度文库签到脚本 - Documentation</title>
+    <title>好书友签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">百度文库签到脚本</h1>
+    <h1 class="page-title">好书友签到脚本</h1>
     
 
     
@@ -51,7 +51,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>本脚本借鉴 <a href="https://soulsign.inu1255.cn/scripts/15">inu1255 的百度文库签到脚本</a>，更改了检查在线逻辑。</p>
+            <div class="description"><p>本脚本借鉴 <a href="https://soulsign.inu1255.cn/scripts/167">Vicrack 的鱼C论坛脚本</a>，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。</p>
 <p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
 <p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
         
@@ -95,7 +95,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="wenku.baidu.com.js.html">wenku.baidu.com.js</a>, <a href="wenku.baidu.com.js.html#line19">line 19</a>
+        <a href="www.93book.com.js.html">www.93book.com.js</a>, <a href="www.93book.com.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -173,7 +173,7 @@
             
                 <td class="default">
                 
-                    wenku.baidu.com
+                    www.93book.com
                 
                 </td>
             
@@ -257,7 +257,7 @@
             
                 <td class="default">
                 
-                    https://soulsign.inu1255.cn/scripts/239
+                    https://soulsign.inu1255.cn/scripts/185
                 
                 </td>
             
@@ -299,7 +299,7 @@
             
                 <td class="default">
                 
-                    https://passport.baidu.com/v2/?login
+                    http://www.93book.com/member.php?mod=logging&amp;action=login
                 
                 </td>
             
@@ -341,13 +341,89 @@
             
                 <td class="default">
                 
-                    https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
                 
                 </td>
             
 
             <td class="description last">
                 <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>账户</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pwd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>加密密码</p>
                 
             </td>
         </tr>

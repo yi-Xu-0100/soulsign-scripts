@@ -7,6 +7,10 @@
 
 个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
 
+本仓库脚本介绍网站：<https://github.yixuju.cn/soulsign-scripts/>
+
+开发的脚本市场网站：<https://soulsign.inu1255.cn/>
+
 脚本内容讨论请转至： [仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
 
 签到插件讨论请转至： [官方 issue](https://github.com/inu1255/soulsign-chrome/issues)

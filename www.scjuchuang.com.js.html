@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>www.scjuchuang.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">www.scjuchuang.com.js</h1>
     
 
     
@@ -40,52 +40,63 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.3
+// @name              聚创
+// @namespace         https://soulsign.inu1255.cn/scripts/186
+// @version           1.0.4
 // @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+// @loginURL          https://www.scjuchuang.com/login/index
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/聚创
 // @expire            900000
-// @domain            wenku.baidu.com
+// @domain            www.scjuchuang.com
+// @grant            cookie
 // ==/UserScript==
 
 /**
- * @file 百度文库签到脚本
+ * @file 聚创签到脚本
  * @author yi-Xu-0100
- * @author inu1255
- * @version 1.0.3
+ * @version 1.0.4
  */
 
 /**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * @module 聚创签到脚本
+ * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  * 
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
+ * @param {string|string[]} [domain = www.scjuchuang.com] - 请求的域名
+ * @param {string|string[]} [grant = cookie] - 脚本需要的权限
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/186] - 脚本主页
+ * @param {string} [loginURL = https://www.scjuchuang.com/login/index] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/聚创] - 脚本更新链接
  */
 
 exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
-        }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
+    var userinfo = await getCookie('https://www.scjuchuang.com/index', 'userinfo');
+    var { data } = await axios.post('https://www.scjuchuang.com/intergralSigin/signin',
+        {
+            "user_id": JSON.parse(userinfo).user_id,
+            "token": JSON.parse(userinfo).token
+        },
+        {
+            headers: {
+                "Origin": "https://www.scjuchuang.com",
+                "Referer": "https://www.scjuchuang.com/index"
+            }
+        });
+    if (/签到成功/.test(data.msg)) return "今日获得 " + data.data.integral + " 积分,已连续签到 " + data.data.continue_count + " 天";
+    if (/今日已签到/.test(data.msg)) return "重复签到";
+    if (/长时间未操作,请重新登录/.test(data.msg)) {
+        var { data } = await axios.get('https://www.scjuchuang.com/index');
+        if (!/进入会员中心/.test(data)) throw "请登录";
+        var { data } = await axios.get('https://www.scjuchuang.com/intergralSigin/index');
+        return /已签到/.test(data) ? "重复签到." : data;
+    } else throw data;
 };
 
 exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
+    var { data } = await axios.get('https://www.scjuchuang.com/index');
+    return /进入会员中心/.test(data) ? true : false;
+};</code></pre>
         </article>
     </section>
 

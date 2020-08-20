@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>鱼C论坛签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,65 +29,371 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">鱼C论坛签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.3
-// @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
-// @expire            900000
-// @domain            wenku.baidu.com
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file 百度文库签到脚本
- * @author yi-Xu-0100
- * @author inu1255
- * @version 1.0.3
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>本脚本是 <a href="https://github.com/ViCrack">ViCrack</a> 所创造。</p></div>
+        
 
-/**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
- */
+        
+            
+<div class="section-method">
 
-exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
-        }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
-};
 
-exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fishc.com.cn.js.html">fishc.com.cn.js</a>, <a href="fishc.com.cn.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    fishc.com.cn
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/167
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://fishc.com.cn
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/ViCrack/鱼C论坛
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

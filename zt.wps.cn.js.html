@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>zt.wps.cn.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">zt.wps.cn.js</h1>
     
 
     
@@ -40,52 +40,55 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
+// @name              wps打卡领会员
+// @namespace         https://soulsign.inu1255.cn?account=inu1255
 // @version           1.0.3
-// @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+// @author            inu1255
+// @loginURL          https://zt.wps.cn/2018/clock_in
+// @updateURL         https://soulsign.inu1255.cn/script/inu1255/wps打卡领会员
 // @expire            900000
-// @domain            wenku.baidu.com
+// @domain            zt.wps.cn
 // ==/UserScript==
 
 /**
- * @file 百度文库签到脚本
- * @author yi-Xu-0100
+ * @file wps打卡领会员签到脚本
  * @author inu1255
  * @version 1.0.3
  */
 
 /**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
+ * @module wps打卡领会员签到脚本
+ * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造，现在该脚本**已失效**！
+ * @param {string|string[]} [domain = zt.wps.cn] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/7] - 脚本主页
+ * @param {string} [loginURL = https://zt.wps.cn/2018/clock_in] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/wps打卡领会员] - 脚本更新链接
  */
 
-exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
+exports.run = async function () {
+    var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_question', { maxRedirects: 0, validateStatus: s => true });
+    if (status == 302) throw '需要登录';
+    let answer = 1;
+    for (let i = 0; i &lt; data.data.options.length; i++) {
+        let row = data.data.options[i];
+        if (/WPS/.test(row)) {
+            answer = i + 1;
+            break;
         }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
+    }
+    var { data } = await axios.post('https://zt.wps.cn/2018/clock_in/api/answer', { answer });
+    if (data.result != 'ok') throw data.msg;
+    var { data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/clock_in');
+    if (data.msg == '已打卡') return '已打卡';
+    if (data.msg == '不在打卡时间内') return '不在打卡时间内';
+    if (data.result != 'ok') throw data.msg;
 };
 
-exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
+exports.check = async function () {
+    var { data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/sign_up?sid=0&amp;from=&amp;csource=');
+    return data.msg == '已参加挑战' || data.result == 'ok';
+};</code></pre>
         </article>
     </section>
 

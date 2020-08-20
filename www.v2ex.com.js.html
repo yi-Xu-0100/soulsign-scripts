@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>www.v2ex.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">www.v2ex.com.js</h1>
     
 
     
@@ -40,52 +40,52 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.3
-// @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
-// @expire            900000
-// @domain            wenku.baidu.com
+// @name              v2ex签到
+// @namespace         https://soulsign.inu1255.cn?account=inu1255
+// @version           1.0.8
+// @author            inu1255
+// @loginURL          https://www.v2ex.com/signin
+// @updateURL         https://soulsign.inu1255.cn/script/inu1255/v2ex签到
+// @expire            360000
+// @domain            www.v2ex.com
 // ==/UserScript==
 
 /**
- * @file 百度文库签到脚本
- * @author yi-Xu-0100
+ * @file v2ex签到脚本
  * @author inu1255
- * @version 1.0.3
+ * @version 1.0.8
  */
 
 /**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
+ * @module v2ex签到脚本
+ * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造。
+ * @param {string|string[]} [domain = www.v2ex.com] - 请求的域名
+ * @param {string} [expire = 360000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/1] - 脚本主页
+ * @param {string} [loginURL = https://www.v2ex.com/signin] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/v2ex签到] - 脚本更新链接
  */
 
 exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
-        }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
+    var defaultheaders = { "referer": "https://www.v2ex.com/", "upgrade-insecure-requests": 1 };
+    var ret = await axios.get('https://www.v2ex.com/mission/daily', { headers: defaultheaders });
+    if (/登录&lt;/.test(ret.data)) throw '需要登录';
+    if (/每日登录奖励已领取/.test(ret.data)) return '已领取';
+    let m = /redeem\?once=(.*?)'/.exec(ret.data);
+    if (!m) throw '失败1';
+    await axios.get('https://www.v2ex.com/mission/daily/redeem?once=' + m[1], { headers: defaultheaders });
+    var ret = await axios.get('https://www.v2ex.com/mission/daily', { headers: defaultheaders });
+    if (/每日登录奖励/.test(ret.data)) return '成功';
+    throw '失败2';
 };
 
 exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
+    var now = Date.now();
+    if (this.expired > now) return this.prev_check;
+    this.expired = now + 60e3;
+    var ret = await axios.get('https://www.v2ex.com/t/510849', { maxRedirects: 0, headers: { "referer": "https://www.v2ex.com/", "upgrade-insecure-requests": 1 } });
+    return this.prev_check = !/>现在注册&lt;/.test(ret.data);
+};</code></pre>
         </article>
     </section>
 

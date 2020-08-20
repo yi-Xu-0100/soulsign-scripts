@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>wenku.baidu.com.js - Documentation</title>
+    <title>bbs.pinggu.org.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">wenku.baidu.com.js</h1>
+    <h1 class="page-title">bbs.pinggu.org.js</h1>
     
 
     
@@ -40,52 +40,51 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              百度文库签到
-// @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.3
-// @author            yi-Xu-0100
-// @loginURL          https://passport.baidu.com/v2/?login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
+// @name              人大经济论坛
+// @namespace         https://soulsign.inu1255.cn?account=hithy123
+// @version           1.0.0
+// @author            hithy123
+// @loginURL          https://bbs.pinggu.org/plugin.php?id=dsu_paulsign:sign
+// @updateURL         https://soulsign.inu1255.cn/script/hithy123/人大经济论坛
 // @expire            900000
-// @domain            wenku.baidu.com
+// @domain            bbs.pinggu.org
 // ==/UserScript==
 
 /**
- * @file 百度文库签到脚本
- * @author yi-Xu-0100
- * @author inu1255
- * @version 1.0.3
+ * @file 人大经济论坛签到脚本
+ * @author hithy123
+ * @version 1.0.0
  */
 
 /**
- * @module 百度文库签到脚本
- * @description 本脚本借鉴 [inu1255 的百度文库签到脚本](https://soulsign.inu1255.cn/scripts/15)，更改了检查在线逻辑。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = wenku.baidu.com] - 请求的域名
+ * @module 人大经济论坛签到脚本
+ * @description 本脚本是 [hithy123](https://github.com/hithy123) 所创造。
+ * @param {string|string[]} [domain = bbs.pinggu.org] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/239] - 脚本主页
- * @param {string} [loginURL = https://passport.baidu.com/v2/?login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到] - 脚本更新链接
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/225] - 脚本主页
+ * @param {string} [loginURL = https://bbs.pinggu.org/plugin.php?id=dsu_paulsign:sign] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/hithy123/人大经济论坛] - 脚本更新链接
  */
 
 exports.run = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/submit/signin", {
-        headers: {
-            "Referer": "https://wenku.baidu.com/task/browse/daily"
-        }
-    });
-    if (data.errno === "0") return "成功签到";
-    if (data.errno === "109") throw "需要登录";
-    throw JSON.stringify(data);
+    var { data } = await axios.post('https://bbs.pinggu.org/plugin.php?id=dsu_paulsign:sign&amp;576989e1&amp;infloat=yes&amp;handlekey=dsu_paulsign&amp;inajax=1&amp;ajaxtarget=fwin_content_dsu_paulsign');
+    if (/已经签到/.test(data)) return "已经签到";
+    var m = /name="formhash" value="([^"]+)/.exec(data);
+    if (!m) throw "签到失败";
+    var formhash = m[1];
+    var { data } = await axios.post('https://bbs.pinggu.org/plugin.php?id=dsu_paulsign:sign&amp;operation=qiandao&amp;infloat=1&amp;inajax=1', `formhash=${formhash}&amp;qdxq=kx`);
+    if (/签到成功/.test(data)) return '签到成功';
+    if (/已经签到/.test(data)) return '已经签到';
+    throw '签到失败';
 };
 
 exports.check = async function (param) {
-    var { data } = await axios.get("https://wenku.baidu.com/task/browse/daily");
-    return !(/登录百度帐号/.test(data));
-}</code></pre>
+    var { data } = await axios.get('https://bbs.pinggu.org/plugin.php?id=dsu_paulsign:sign&amp;576989e1&amp;infloat=yes&amp;handlekey=dsu_paulsign&amp;inajax=1&amp;ajaxtarget=fwin_content_dsu_paulsign');
+    if (/已经签到/.test(data)) return true;
+    var m = /name="formhash" value="([^"]+)/.exec(data);
+    if (!m) return false;
+    return true;
+};</code></pre>
         </article>
     </section>
 
