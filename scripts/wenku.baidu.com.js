@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              百度文库签到
 // @namespace         https://soulsign.inu1255.cn/scripts/239
-// @version           1.0.4
+// @version           1.0.5
 // @author            yi-Xu-0100
 // @loginURL          https://wenku.baidu.com/task/browse/daily
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/百度文库签到
@@ -13,7 +13,7 @@
  * @file 百度文库签到脚本
  * @author yi-Xu-0100
  * @author inu1255
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 /**
@@ -34,7 +34,7 @@ exports.run = async function (param) {
     var resp0 = await axios.get("https://wenku.baidu.com/task/browse/daily");
     if(/登录百度帐号/.test(resp0.data)) throw "需要登录";
     if(/<li class="today js-signin-btn g-ico g-ico-arrive">/.test(resp0.data)) return "重复签到";
-    var rewards = "经验值 +" + JSON.parse(reps0.data.match("daily:({.*})")[1].toString()).today_exp_prize;
+    var rewards = "经验值 +" + JSON.parse(resp0.data.match("daily:({.*})")[1].toString()).today_exp_prize;
     var resp1 = await axios.get("https://wenku.baidu.com/user/interface/getuserasset2019", {
         headers: {
             "Referer": "https://wenku.baidu.com/nduc/browse/uc?_page=home&_redirect=1"
