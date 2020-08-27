@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>api.live.bilibili.com.js - Documentation</title>
+    <title>阿里云签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,56 +29,371 @@
 
 <div id="main">
     
-    <h1 class="page-title">api.live.bilibili.com.js</h1>
+    <h1 class="page-title">阿里云签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              bilibili直播
-// @namespace         https://soulsign.inu1255.cn?account=inu1255
-// @version           1.0.2
-// @author            inu1255
-// @loginURL          https://passport.bilibili.com/login
-// @updateURL         https://soulsign.inu1255.cn/script/inu1255/bilibili直播
-// @expire            900000
-// @domain            api.live.bilibili.com
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file bilibili直播签到脚本
- * @author inu1255
- * @version 1.0.2
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>本脚本是 <a href="https://github.com/inu1255">inu1255</a> 所创造。</p></div>
+        
 
-/**
- * @module bilibili直播签到脚本
- * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造。
- * @param {string|string[]} [domain = api.live.bilibili.com] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/10] - 脚本主页
- * @param {string} [loginURL = https://passport.bilibili.com/login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/bilibili直播] - 脚本更新链接
- */
+        
+            
+<div class="section-method">
 
-exports.run = async function (param) {
-    var { data } = await axios.get('https://api.live.bilibili.com/sign/doSign');
-    if (data.code == 0) return data.data.text;
-    if (data.code == 1011040) return data.message;
-    throw data.message;
-};
 
-exports.check = async function (param) {
-    var { data } = await axios.get('https://api.live.bilibili.com/relation/v1/Feed/heartBeat');
-    return data.code === 0;
-};</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="club.aliyun.com.js.html">club.aliyun.com.js</a>, <a href="club.aliyun.com.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    club.aliyun.com
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/228
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://account.aliyun.com/login/qr_login.htm?oauth_callback=https%3A%2F%2Fclub.aliyun.com%2F%23%2F
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/inu1255/阿里云签到
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
