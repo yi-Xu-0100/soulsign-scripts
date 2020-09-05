@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              51NB论坛
 // @namespace         https://soulsign.inu1255.cn/scripts/248
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://forum.51nb.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/51NB论坛
@@ -13,7 +13,7 @@
  * @file 51NB论坛签到脚本
  * @author yi-Xu-0100
  * @author hithy123
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -31,7 +31,7 @@
  */
 
 exports.run = async function (param) {
-    var signurl = "https://forum.51nb.com/plugin.php?id=dsu_paulsign:sig";
+    var signurl = "https://forum.51nb.com/plugin.php?id=dsu_paulsign:sign";
     var { data } = await axios.get(signurl);
     if(/需要先登录/.test(data)) throw "需要登录";
     if (/已经签到/.test(data)) return "已经签到";
