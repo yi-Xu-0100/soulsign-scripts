@@ -34,8 +34,8 @@
 |    [威锋网签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动登陆        | 获取 cookie |
 |    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
 |   [百度文库签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
-|   [51NB论坛签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
-| [人大经济论坛签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
+|   [51NB论坛签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
+| [人大经济论坛签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
 
 ## 压缩包(build.zip)
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              人大经济论坛
 // @namespace         https://soulsign.inu1255.cn/scripts/249
-// @version           1.0.1
+// @version           1.0.3
 // @author            yi-Xu-0100
 // @loginURL          https://bbs.pinggu.org/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/人大经济论坛
@@ -13,12 +13,12 @@
  * @file 人大经济论坛签到脚本
  * @author yi-Xu-0100
  * @author hithy123
- * @version 1.0.1
+ * @version 1.0.3
  */
 
 /**
  * @module 人大经济论坛签到脚本
- * @description 本脚本借鉴 [hithy123 的人大经济论坛签到脚本](https://soulsign.inu1255.cn/scripts/225)，更改了检查在线逻辑，设置了通用模板格式。
+ * @description 本脚本借鉴 [hithy123 的人大经济论坛签到脚本](https://soulsign.inu1255.cn/scripts/225)，增加签到奖励信息反馈，更改了检查在线逻辑，设置了通用模板格式。
  * 
  * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  * 
@@ -40,9 +40,9 @@ exports.run = async function (param) {
     var formhash = /name="formhash" value="([^"]+)/.exec(data)[1];
     var { data } = await axios.post(signurl + '&operation=qiandao&infloat=1&inajax=1',
         `formhash=${formhash}&qdxq=kx`);
-    if (/已经签到/.test(data)) return '重复签到';
-    var { data } = await axios.post(signurl);
-    if (/已经签到/.test(data)) return '签到成功';
+    var reward = /<div class="c">[\r\s\n]*(.*)<\/div>/.exec(data);
+    if (reward && /已经签到/.test(reward[1])) return reward[1];
+    if (reward && /签到成功/.test(reward[1])) return "已经签到";
     throw '签到失败';
 };
 
