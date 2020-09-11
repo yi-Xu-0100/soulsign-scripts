@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              geekhub
 // @namespace         https://soulsign.inu1255.cn/scripts/172
-// @version           1.1.1
+// @version           1.1.2
 // @author            yi-Xu-0100
 // @loginURL          https://geekhub.com/users/sign_in
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub
@@ -12,7 +12,7 @@
 /**
  * @file geekhub签到脚本
  * @author yi-Xu-0100
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 /**
@@ -27,13 +27,18 @@
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub] - 脚本更新链接
  */
 
+function getGbit(data) {
+    geekModeGbit = data.match(/<div class="flex items-center mx-3 mb-5 divide-x divide-primary-500 minor">\s+<div class="flex-1 flex flex-col items-center justify-center">\s+<div>(\d*?)<\/div>/);
+    classicalModeGbit = data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/);
+    if (geekModeGbit == null && classicalModeGbit == null) return [false, "noGbit"];
+    else return [true, geekModeGbit != null ? geekModeGbit[1] : classicalModeGbit[1]];
+}
 exports.run = async function (param) {
     let resp = await axios.get("https://geekhub.com/checkins");
     if (resp.data.includes("今日已签到")) return "重复签到";
     if (resp.data.includes("您需要登录后才能继续")) throw "未登录";
     let result = resp.data.match(/<meta name="csrf-token" content="(.*?)"/);
-    let originGbit = resp.data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/) ||
-        resp.data.match(/<div class="flex-1 text-center">\s+<div>(\d*)<\/div>\s+<div>Gbit/);
+    let originGbit = getGbit(resp.data);
     let resp1 = await axios.post('https://geekhub.com/checkins/start',
         "_method=post&authenticity_token=" + encodeURIComponent(result[1]),
         {
@@ -43,9 +48,9 @@ exports.run = async function (param) {
             }
         });
     if (/今日已签到/.test(resp1.data)) {
-        let todayGbit = resp1.data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/) ||
-            resp1.data.match(/<div class="flex-1 text-center">\s+<div>(\d*)<\/div>\s+<div>Gbit/);
-        return "今日获得 " + (todayGbit[1] - originGbit[1]) + " Gbit";
+        let todayGbit = getGbit(resp1.data);
+        if (!originGbit[0] && !todayGbit[0]) return "成功签到，但无法获取 Gbit 数量";
+        else return "今日获得 " + (todayGbit[1] - originGbit[1]) + " Gbit";
     } else throw (/您需要登录后才能继续/.test(resp1.data)) ? "未登录" : "签到失败";
 };
 
