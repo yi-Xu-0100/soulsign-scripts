@@ -1,8 +1,8 @@
 ## soulsign-scripts
 
 [![workflows status](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
-[![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
+[![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
 [![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
@@ -23,7 +23,7 @@
 | :--------------------------------------------------------------------: | :---------------------------: | :---------: |
 |    [阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |    [忍者云签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/173)    |       帐号密码自动登陆        |     无      |
-|   [geekhub 签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/172)   |              无               |     无      |
+|   [geekhub 签到脚本 V1.1.2](https://soulsign.inu1255.cn/scripts/172)   |              无               |     无      |
 |    [好书友签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/185)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |     [聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)     |              无               | 获取 cookie |
 |   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
