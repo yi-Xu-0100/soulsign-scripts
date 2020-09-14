@@ -36,7 +36,8 @@
 |   [百度文库签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 |   [51NB论坛签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
 | [人大经济论坛签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
-|  [比特球云盘签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/251)  |              无               |     无      |
+|  [比特球云盘签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/251)  |              无               |     无      |
+|   [盛天网络签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 
 ## 压缩包(build.zip)
 
