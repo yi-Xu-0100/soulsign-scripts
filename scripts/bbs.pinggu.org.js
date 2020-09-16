@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              人大经济论坛
 // @namespace         https://soulsign.inu1255.cn/scripts/249
-// @version           1.0.4
+// @version           1.0.5
 // @author            yi-Xu-0100
 // @loginURL          https://bbs.pinggu.org/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/人大经济论坛
@@ -13,7 +13,7 @@
  * @file 人大经济论坛签到脚本
  * @author yi-Xu-0100
  * @author hithy123
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 /**
@@ -42,7 +42,7 @@ exports.run = async function (param) {
         `formhash=${formhash}&qdxq=kx`);
     var reward = /<div class="c">[\r\s\n]*(.*?)<[\/]?div/.exec(data);
     if (reward && /已经签到/.test(reward[1])) return "重复签到";
-    if (reward && /签到成功/.test(reward[1])) return reward[1];
+    if (reward && /签到成功/.test(reward[1])) return /恭喜你签到成功![\s]?(.*)/.exec(reward[1])[1];
     throw '签到失败';
 };
 
