@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              比特球云盘
 // @namespace         https://soulsign.inu1255.cn/scripts/251
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://pan.bitqiu.com/
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/比特球云盘
@@ -12,7 +12,7 @@
 /**
  * @file 比特球云盘签到脚本
  * @author yi-Xu-0100
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -31,7 +31,7 @@ exports.run = async function (param) {
     let resp = await axios.post("https://pan.bitqiu.com/integral/randomSignin");
     if (resp.data.message === "用户session已过期") throw "需要登录";
     if (resp.data.message === "已签到") return "重复签到";
-    if (resp.data.message === "成功") return `获得 ${resp.data.data.integral} 积分`;
+    if (resp.data.message === "成功") return `获得 ${resp.data.data.baseIntegral} 积分`;
     throw resp.data;
 
 };

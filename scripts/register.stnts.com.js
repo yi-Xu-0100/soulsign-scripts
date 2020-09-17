@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              盛天网络
 // @namespace         https://soulsign.inu1255.cn/scripts/252
-// @version           1.0.0
+// @version           1.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://register.stnts.com/new/v2/login.do
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/盛天网络
@@ -12,7 +12,7 @@
 /**
  * @file 盛天网络签到脚本
  * @author yi-Xu-0100
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -32,7 +32,7 @@ exports.run = async function (param) {
     if (/用户中心-登录页/.test(resp.data)) throw "需要登录";
     let resp1 = await axios.get("https://register.stnts.com/new/account/signin.do");
     if (resp1.data.info === "今日已签到") return "重复签到";
-    if (resp1.data.info === "签到成功") return `获得 ${resp1.data.data.score} 积分`;
+    if (resp1.data.info === "签到成功") return `连续签到 ${resp1.data.data.continueNum} 天，当前共 ${resp1.data.data.score} 积分`;
     throw resp1.data;
 
 };
