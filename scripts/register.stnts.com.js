@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              盛天网络
 // @namespace         https://soulsign.inu1255.cn/scripts/252
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://register.stnts.com/new/v2/login.do
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/盛天网络
@@ -12,7 +12,7 @@
 /**
  * @file 盛天网络签到脚本
  * @author yi-Xu-0100
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -28,16 +28,31 @@
  */
 
 exports.run = async function (param) {
-    let resp = await axios.get("https://register.stnts.com/new/v2/account/home.do");
+    var resp = await axios.get("https://register.stnts.com/new/v2/account/home.do");
     if (/用户中心-登录页/.test(resp.data)) throw "需要登录";
-    let resp1 = await axios.get("https://register.stnts.com/new/account/signin.do");
+    var resp1 = await axios.get("https://register.stnts.com/new/account/signin.do");
     if (resp1.data.info === "今日已签到") return "重复签到";
-    if (resp1.data.info === "签到成功") return `连续签到 ${resp1.data.data.continueNum} 天，当前共 ${resp1.data.data.score} 积分`;
+    if (resp1.data.info === "签到成功") {
+        var reward = (resp1.data.data.continueNum - 1) * 3 + 5;
+        return '签到获得 ' + (((reward < 20) && reward) || 20) + " 积分";
+    }
     throw resp1.data;
 
 };
 
 exports.check = async function (param) {
-    let resp = await axios.get("https://register.stnts.com/new/v2/account/home.do");
-    return !/用户中心-登录页/.test(resp.data);
+    var resp = await axios.get("https://register.stnts.com/new/v2/account/home.do");
+    if (/用户中心-登录页/.test(resp.data)) {
+        return open("https://register.stnts.com/new/v2/login.do", false, async (fb) => {
+            let frames = await fb.iframes();
+            for (let fb of frames) {
+                if (fb.url.startsWith("https://register.stnts.com/new/v2/login.do")) {
+                    await fb.click(".btn.btn-blue.btn-max.mt30.js-auto-submit-btn");
+                    await fb.waitLoaded();
+                    return true;
+                }
+            }
+            return false;
+        });
+    } else return true;
 };
