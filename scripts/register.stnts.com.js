@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              盛天网络
 // @namespace         https://soulsign.inu1255.cn/scripts/252
-// @version           1.0.2
+// @version           1.0.3
 // @author            yi-Xu-0100
 // @loginURL          https://register.stnts.com/new/v2/login.do
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/盛天网络
@@ -12,7 +12,7 @@
 /**
  * @file 盛天网络签到脚本
  * @author yi-Xu-0100
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 /**
@@ -44,15 +44,10 @@ exports.check = async function (param) {
     var resp = await axios.get("https://register.stnts.com/new/v2/account/home.do");
     if (/用户中心-登录页/.test(resp.data)) {
         return open("https://register.stnts.com/new/v2/login.do", false, async (fb) => {
-            let frames = await fb.iframes();
-            for (let fb of frames) {
-                if (fb.url.startsWith("https://register.stnts.com/new/v2/login.do")) {
-                    await fb.click(".btn.btn-blue.btn-max.mt30.js-auto-submit-btn");
-                    await fb.waitLoaded();
-                    return true;
-                }
-            }
-            return false;
+            if (await fb.click(".btn.btn-blue.btn-max.mt30.js-auto-submit-btn")) {
+                await fb.waitLoaded();
+                return true;
+            } else return false;
         });
     } else return true;
 };
