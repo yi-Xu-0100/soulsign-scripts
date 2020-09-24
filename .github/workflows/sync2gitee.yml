@@ -7,7 +7,7 @@ on:
     - cron: '0 17 * * *'
 
 jobs:
-  sync-to-gitee:
+  run:
     name: Sync GitHub to Gitee
     runs-on: ubuntu-latest
     steps:
@@ -23,20 +23,8 @@ jobs:
         script: |
           return context.repo.repo;
 
-    - name: Cache src repos
-      uses: actions/cache@v2.1.1
-      id: cache
-      with:
-        path: ${{ github.workspace }}/hub-mirror-cache
-        key: |
-          ${{ runner.os }}-${{ github.repository_owner }}-${{ steps.info.outputs.result }}-cache
 
-    - name: Print the cache status
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: |
-        echo "Cached successfully."
-
-    - name: Mirror the Github repos to Gitee with cache
+    - name: Mirror the Github repos to Gitee
       uses: Yikun/hub-mirror-action@v0.09
       with:
         src: github/yi-Xu-0100
@@ -44,9 +32,5 @@ jobs:
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
         account_type: user
-        cache_path: /github/workspace/hub-mirror-cache
         static_list: ${{ steps.info.outputs.result }}
         force_update: true
-    - name: Print cache path
-      run: |
-        ls -la ${{ github.workspace }}/hub-mirror-cache
