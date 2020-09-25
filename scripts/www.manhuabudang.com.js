@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              漫画补档
 // @namespace         https://soulsign.inu1255.cn/scripts/266
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://www.manhuabudang.com/login.php
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/漫画补档
@@ -12,7 +12,7 @@
 /**
  * @file 漫画补档签到脚本
  * @author yi-Xu-0100
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -29,6 +29,7 @@
 
 exports.run = async function (param) {
     var resp = await axios.get('https://www.manhuabudang.com/u.php');
+    if (/您还没有登录或注册/.test(resp.data)) throw "需要登录";
     var verify = /<input type="hidden" name="verify" value="([^"]+)/.exec(resp.data);
     if (!(verify && verify[1])) throw "未找到 verify ！";
     var step = /<input type="hidden" name="step" value="([^"]+)/.exec(resp.data);
@@ -43,6 +44,5 @@ exports.run = async function (param) {
 
 exports.check = async function (param) {
     var resp = await axios.get("https://www.manhuabudang.com/u.php");
-    if (/您没有登录/.test(resp)) return false;
-    return true;
+    return !(/您还没有登录或注册/.test(resp.data));
 };
