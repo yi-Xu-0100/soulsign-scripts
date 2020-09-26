@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>music.163.com.js - Documentation</title>
+    <title>uqer.datayes.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">music.163.com.js</h1>
+    <h1 class="page-title">uqer.datayes.com.js</h1>
     
 
     
@@ -40,59 +40,59 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              网易云音乐
-// @namespace         https://soulsign.inu1255.cn/scripts/233
-// @version           1.0.4
+// @name              优矿
+// @namespace         https://soulsign.inu1255.cn/scripts/268
+// @version           1.0.1
 // @author            yi-Xu-0100
-// @loginURL          https://music.163.com/#/login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/网易云音乐
+// @loginURL          https://uqer.datayes.com/login
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/优矿
 // @expire            900000
-// @domain            music.163.com
+// @domain            gw.datayes.com
 // ==/UserScript==
 
 /**
- * @file 网易云音乐签到脚本
+ * @file 优矿签到脚本
  * @author yi-Xu-0100
- * @author inu1255
- * @version 1.0.4
+ * @version 1.0.1
  */
 
 /**
- * @module 网易云音乐签到脚本
- * @description 本脚本借鉴 [inu1255 的网易云音乐签到脚本](https://soulsign.inu1255.cn/scripts/3)，更改了检查在线逻辑和签到反馈消息。
- * 
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * @module 优矿签到脚本
+ * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  * 
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = music.163.com] - 请求的域名
+ * @param {string|string[]} [domain = gw.datayes.com] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/233] - 脚本主页
- * @param {string} [loginURL = https://music.163.com/#/login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/网易云音乐] - 脚本更新链接
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/268] - 脚本主页
+ * @param {string} [loginURL = https://uqer.datayes.com/login] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/优矿] - 脚本更新链接
  */
 
-exports.run = async function () {
-    // 移动端签到（10 云贝）
-    var point = 0;
-    var { data } = await axios.get('http://music.163.com/api/point/dailyTask?type=0');
-    if (data.code === 200) point += data.point;
-    else if (data.code != -2) throw data.msg;
-
-    // 桌面端签到（5 云贝）
-    var { data } = await axios.get('http://music.163.com/api/point/dailyTask?type=1');
-    if (data.code === 200) point += data.point;
-    else if (data.code != -2) throw data.msg;
-
-    if (point === 10) return "获得 " + point + " 云贝，桌面端已签到";
-    else if (point === 5) return "获得 " + point + " 云贝，移动端已签到";
-    else if (point === 15) return "获得 15 云贝";
-    else return "桌面端、移动端均已签到";
+exports.run = async function (param) {
+    var resp = await axios.get("https://gw.datayes.com/mercury_community/profile");
+    if (resp.data.message === "Need login") throw "需要登录";
+    var user_id = resp.data.data.user_id;
+    var resp1 = await axios.get("https://gw.datayes.com/mercury_community/popwindow?type=sign");
+    if (resp1.data.data.is_pop === false) return "重复签到";
+    var resp2 = await axios.get(`https://gw.datayes.com/mercury_community/user/${user_id}?field=point_stats`);
+    var originPoints = resp2.data.data.point_stats.available_points;
+    var resp3 = await axios.post('https://gw.datayes.com/mercury_community/popwindow',
+        { "is_pop": false, "type": "sign" },
+        {
+            headers: {
+                "content-type": "application/json;charset=UTF-8",
+            }
+        });
+    if (resp3.data.code != 200) throw resp3.data;
+    var resp4 = await axios.get(`https://gw.datayes.com/mercury_community/user/${user_id}?field=point_stats`);
+    var todayPoints = resp4.data.data.point_stats.available_points;
+    return `获得 ${todayPoints - originPoints} 积分`;
 
 };
 
-exports.check = async function () {
-    var { data } = await axios.get('https://music.163.com/');
-    return !(/GUser={}/.test(data));
+exports.check = async function (param) {
+    var resp = await axios.get("https://gw.datayes.com/mercury_community/profile");
+    return (resp.data.message != "Need login");
 };</code></pre>
         </article>
     </section>

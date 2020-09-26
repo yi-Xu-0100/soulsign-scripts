@@ -40,6 +40,7 @@
 |  [比特球云盘签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/251)  |              无               |     无      |
 |   [盛天网络签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/252)   |              无               |     无      |
 |   [漫画补档签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/266)   |              无               |     无      |
+|     [优矿签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/268)     |              无               |     无      |
 
 ## 压缩包(build.zip)
 
