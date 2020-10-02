@@ -62,9 +62,9 @@
 /**
  * @module 好书友签到脚本
  * @description 本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
- * 
+ *
  * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
+ *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
  * @param {string|string[]} [domain = www.93book.com] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
@@ -76,58 +76,64 @@
  */
 
 exports.run = async function (param) {
-    let resp = await axios.get("http://www.93book.com/plugin.php?id=k_misign:sign");
-    let signhtml = resp.data;
-    if (signhtml.includes("您的签到排名"))
-        return "重复签到";
-    let result = signhtml.match(/&lt;a id="JD_sign" href="(.*?)"/);
-    if (result[1] == "member.php?mod=logging&amp;action=login") throw "未登录";
-    var { data } = await axios.get("http://www.93book.com/" + result[1]);
-    if (/需要先登录/.test(data)) throw "未登录";
-    let resp1 = await axios.get("http://www.93book.com/plugin.php?id=k_misign:sign");
-    let signhtml1 = resp1.data;
-    if (signhtml1.includes("您的签到排名")) {
-        let result1 = signhtml1.match(/&lt;input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/);
-        return "积分奖励: " + result1[1] + " 银币";
-    }
-    else throw "未成功签到";
+  let resp = await axios.get('http://www.93book.com/plugin.php?id=k_misign:sign');
+  let signhtml = resp.data;
+  if (signhtml.includes('您的签到排名')) return '重复签到';
+  let result = signhtml.match(/&lt;a id="JD_sign" href="(.*?)"/);
+  if (result[1] == 'member.php?mod=logging&amp;action=login') throw '未登录';
+  var { data } = await axios.get('http://www.93book.com/' + result[1]);
+  if (/需要先登录/.test(data)) throw '未登录';
+  let resp1 = await axios.get('http://www.93book.com/plugin.php?id=k_misign:sign');
+  let signhtml1 = resp1.data;
+  if (signhtml1.includes('您的签到排名')) {
+    let result1 = signhtml1.match(
+      /&lt;input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/
+    );
+    return '积分奖励: ' + result1[1] + ' 银币';
+  } else throw '未成功签到';
 };
 
 exports.check = async function (param) {
-    var { data } = await axios.get("http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup", { maxRedirects: 0 });
-    if (/我的用户组/.test(data))
-        return true;
-    else {
-        var data = await axios.post("http://www.93book.com/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes&amp;inajax=1",
-            {
-                "fastloginfield": "username",
-                "username": param.name,
-                "cookietime": "2592000",
-                "password": param.pwd,
-                "quickforward": "yes",
-                "handlekey": "ls"
-            },
-            {
-                transformRequest: [function (data) {
-                    let ret = ''
-                    for (let it in data) {
-                        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&amp;'
-                    }
-                    return ret.substr(0, ret.length - 1);
-                }],
-                headers: {
-                    "Origin": "http://www.93book.com",
-                    "Upgrade-Insecure-Requests": "1",
-                    "Referer": "http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup"
-                }
-            });
-        var { data } = await axios.get("http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup", { maxRedirects: 0 });
-        if (/我的用户组/.test(data))
-            return true;
-        else
-            return false;
-    }
-};</code></pre>
+  var { data } = await axios.get('http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup', {
+    maxRedirects: 0
+  });
+  if (/我的用户组/.test(data)) return true;
+  else {
+    var data = await axios.post(
+      'http://www.93book.com/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes&amp;inajax=1',
+      {
+        fastloginfield: 'username',
+        username: param.name,
+        cookietime: '2592000',
+        password: param.pwd,
+        quickforward: 'yes',
+        handlekey: 'ls'
+      },
+      {
+        transformRequest: [
+          function (data) {
+            let ret = '';
+            for (let it in data) {
+              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&amp;';
+            }
+            return ret.substr(0, ret.length - 1);
+          }
+        ],
+        headers: {
+          Origin: 'http://www.93book.com',
+          'Upgrade-Insecure-Requests': '1',
+          Referer: 'http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup'
+        }
+      }
+    );
+    var { data } = await axios.get('http://www.93book.com/home.php?mod=spacecp&amp;ac=usergroup', {
+      maxRedirects: 0
+    });
+    if (/我的用户组/.test(data)) return true;
+    else return false;
+  }
+};
+</code></pre>
         </article>
     </section>
 
@@ -139,7 +145,7 @@ exports.check = async function (param) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Fri Oct 02 2020 02:25:29 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Fri Oct 02 2020 06:49:05 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
