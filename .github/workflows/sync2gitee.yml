@@ -11,26 +11,25 @@ jobs:
     name: Sync GitHub to Gitee
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v2.3.2
+      - name: Checkout source code
+        uses: actions/checkout@v2.3.2
 
-    - name: Get current repository name
-      id: info
-      uses: actions/github-script@v3.0.0
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        result-encoding: string
-        script: |
-          return context.repo.repo;
+      - name: Get current repository name
+        id: info
+        uses: actions/github-script@v3.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
+          script: |
+            return context.repo.repo;
 
-
-    - name: Mirror the Github repos to Gitee
-      uses: Yikun/hub-mirror-action@v0.09
-      with:
-        src: github/yi-Xu-0100
-        dst: gitee/yiXu0100
-        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token: ${{ secrets.GITEE_TOKEN }}
-        account_type: user
-        static_list: ${{ steps.info.outputs.result }}
-        force_update: true
+      - name: Mirror the Github repos to Gitee
+        uses: Yikun/hub-mirror-action@v0.09
+        with:
+          src: github/yi-Xu-0100
+          dst: gitee/yiXu0100
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          account_type: user
+          static_list: ${{ steps.info.outputs.result }}
+          force_update: true

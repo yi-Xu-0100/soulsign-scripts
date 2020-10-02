@@ -21,9 +21,9 @@
 /**
  * @module 忍者云签到脚本
  * @description 本脚本借鉴 [marvolo666 的通用 demo 模板](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js)，提供设置用户名和密码方式自动登陆。
- * 
+ *
  * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- * 
+ *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
  * @param {string|string[]} [domain = renzhe.cloud] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
@@ -35,26 +35,23 @@
  */
 
 exports.run = async function (param) {
-	var data = await axios.post('https://renzhe.cloud/user/checkin');
-	if (/成功/.test(data.data.msg))
-		return data.data.msg;
-	else if (/您似乎已经签到过了/.test(data.data.msg))
-		return "重复签到";
-	else if (/获得了 \d{0,4} MB流量/.test(data.data.msg))
-		return data.data.msg;
-	else
-		throw '检查是否登录';
+  var data = await axios.post('https://renzhe.cloud/user/checkin');
+  if (/成功/.test(data.data.msg)) return data.data.msg;
+  else if (/您似乎已经签到过了/.test(data.data.msg)) return '重复签到';
+  else if (/获得了 \d{0,4} MB流量/.test(data.data.msg)) return data.data.msg;
+  else throw '检查是否登录';
 };
 
 exports.check = async function (param) {
-	var { data } = await axios.get('https://renzhe.cloud/user');
-	if (/用户中心/.test(data))
-		return true;
-	else {
-		var data = await axios.post('https://renzhe.cloud/auth/login', { email: param.name, passwd: param.pwd, remember_me: "on" });
-		if (/登录成功/.test(data.data.msg))
-			return true;
-		else
-			return false;
-	}
+  var { data } = await axios.get('https://renzhe.cloud/user');
+  if (/用户中心/.test(data)) return true;
+  else {
+    var data = await axios.post('https://renzhe.cloud/auth/login', {
+      email: param.name,
+      passwd: param.pwd,
+      remember_me: 'on'
+    });
+    if (/登录成功/.test(data.data.msg)) return true;
+    else return false;
+  }
 };

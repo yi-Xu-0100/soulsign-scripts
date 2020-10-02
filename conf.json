@@ -1,8 +1,6 @@
 {
-    "plugins": [
-        "plugins/markdown"
-    ],
-    "opts": {
-        "encoding": "utf8"
-    }
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "encoding": "utf8"
+  }
 }
