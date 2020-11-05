@@ -1,6 +1,6 @@
 ## soulsign-scripts
 
-[![sync2gitee](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/sync2gitee/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3sync2gitee)
+[![sync2gitee(list)](<https://github.com/yi-Xu-0100/hub-mirror/workflows/sync2gitee(list)/badge.svg>)](https://github.com/yi-Xu-0100/hub-mirror)
 [![Jsdoc](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
 [![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
