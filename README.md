@@ -44,6 +44,7 @@
 |   [盛天网络签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/252)   |              无               |     无      |
 |   [漫画补档签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/266)   |              无               |     无      |
 |     [优矿签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/268)     |              无               |     无      |
+|    [爱奇艺签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
 
 ## 压缩包(build.zip)
 
@@ -61,6 +62,7 @@
 - 感谢 [Vicrack](https://github.com/ViCrack) 创作的 [鱼 C 论坛脚本](https://soulsign.inu1255.cn/scripts/167) ！
 - 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板脚本](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js) ！
 - 感谢 [hithy123](https://github.com/hithy123) 创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225) !
+- 感谢 [NobyDa](https://github.com/NobyDa) 创作的 [爱奇艺签到脚本](https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js) !
 
 ## License
 
