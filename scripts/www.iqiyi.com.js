@@ -64,7 +64,7 @@ exports.run = async function (param) {
     `https://community.iqiyi.com/openApi/score/add?authCookie=${P00001}&userId=${userId}&channelCode=sign_pcw&agenttype=1&agentversion=0&appKey=basic_pca&appver=0&srcplatform=1&typeCode=point&verticalCode=iQIYI&scoreType=1&user_agent=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/88.0.4298.0%20Safari/537.36%20Edg/88.0.685.3&dfp=${dfp}&sign=2f03d94fa65964342b5c698654ae0f50`
   );
   if (resp2.data.data[0].code === 'A0002') message = message + '，个人中心重复签到';
-  else if (resp2.data[0].code === 'A0000')
+  else if (resp2.data.data[0].code === 'A0000')
     message = message + '，个人中心签到，积分+' + resp1.data.data[0].score;
   else throw '个人中心签到出错，' + resp2.data.message;
   var resp3 = await axios.get(
