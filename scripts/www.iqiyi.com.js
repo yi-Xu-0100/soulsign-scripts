@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              爱奇艺签到
 // @namespace         https://soulsign.inu1255.cn/scripts/290
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://www.iqiyi.com/u/accountset
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
@@ -15,7 +15,7 @@
 /**
  * @file 爱奇艺签到脚本
  * @author yi-Xu-0100
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -65,8 +65,8 @@ exports.run = async function (param) {
   );
   if (resp2.data.data[0].code === 'A0002') message = message + '，个人中心重复签到';
   else if (resp2.data.data[0].code === 'A0000')
-    message = message + '，个人中心签到，积分+' + resp1.data.data[0].score;
-  else throw '个人中心签到出错，' + resp2.data.message;
+    message = message + '，个人中心签到，积分+' + resp2.data.data[0].score;
+  else throw '个人中心签到出错，' + resp2.data.data.message;
   var resp3 = await axios.get(
     `https://community.iqiyi.com/openApi/task/complete?authCookie=${P00001}&userId=${userId}&channelCode=paopao_pcw&agenttype=1&agentversion=0&appKey=basic_pcw&appver=0&srcplatform=1&typeCode=point&verticalCode=iQIYI&scoreType=1&sign=d2a03e35a17fbef808146de25829b9a4&callback=cb`
   );
