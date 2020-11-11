@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              爱奇艺签到
 // @namespace         https://soulsign.inu1255.cn/scripts/290
-// @version           1.0.2
+// @version           1.0.4
 // @author            yi-Xu-0100
 // @loginURL          https://www.iqiyi.com/u/accountset
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
@@ -15,7 +15,7 @@
 /**
  * @file 爱奇艺签到脚本
  * @author yi-Xu-0100
- * @version 1.0.2
+ * @version 1.0.4
  */
 
 /**
@@ -25,29 +25,32 @@
  * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = [www.iqiyi.com, tc.vip.iqiyi.com]] - 请求的域名
+ * @param {string|string[]} [domain = [www.iqiyi.com, tc.vip.iqiyi.com, community.iqiyi.com]] - 请求的域名
+ * @param {string|string[]} [grant = cookie] - 脚本需要的权限
  * @param {string} [expire = 900000] - 在线检查频率
  * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/290] - 脚本主页
  * @param {string} [loginURL = https://www.iqiyi.com/u/accountset] - 登录链接
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到] - 脚本更新链接
  */
 
-exports.run = async function (param) {
+let run = async function (param) {
+  if (!check(param)) throw '需要登录';
   var P00001 = await getCookie('https://www.iqiyi.com/', 'P00001');
   var userId = await getCookie('https://www.iqiyi.com/', 'P00003');
   var deviceID = await getCookie('https://www.iqiyi.com/', 'QY_PUSHMSG_ID');
   var dfp = /(.+?)@/.exec(await getCookie('https://www.iqiyi.com/', '__dfp'))[1];
-  if (P00001 == null) throw '需要登录';
   var resp = await axios.get(
     `https://tc.vip.iqiyi.com/taskCenter/task/queryUserTask?autoSign=yes&P00001=${P00001}`
   );
   var signInfo = resp.data.data.signInfo;
   if (signInfo.code === 'SIGNED') var message = 'VIP会员重复签到';
   else if (signInfo.code === 'A00000')
-    message =
-      signInfo.data.rewards[0].name +
-      signInfo.data.rewards[0].value +
-      `，VIP会员连续签到 ${continued} 天`;
+    for (let i = 0; i < signInfo.data.signRewardResponses.length; i++) {
+      message =
+        (message ? `${message}，` : '') +
+        signInfo.data.signRewardResponses[i].name +
+        signInfo.data.signRewardResponses[i].value;
+    }
   else throw signInfo.msg;
   var resp1 = await axios.get(
     `https://tc.vip.iqiyi.com/taskCenter/task/joinTask?P00001=${P00001}&taskCode=b6e688905d4e7184&platform=b6c13e26323c537d&lang=zh_CN&app_lm=cn`
@@ -82,6 +85,8 @@ exports.run = async function (param) {
   return message;
 };
 
-exports.check = async function (param) {
+let check = async function (param) {
   return !!(await getCookie('https://www.iqiyi.com/', 'P00001'));
 };
+
+module.exports = { run, check };
