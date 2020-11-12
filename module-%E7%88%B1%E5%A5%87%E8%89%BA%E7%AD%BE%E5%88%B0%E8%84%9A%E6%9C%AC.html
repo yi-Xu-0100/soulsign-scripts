@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>zt.wps.cn.js - Documentation</title>
+    <title>爱奇艺签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,74 +29,418 @@
 
 <div id="main">
     
-    <h1 class="page-title">zt.wps.cn.js</h1>
+    <h1 class="page-title">爱奇艺签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              wps打卡领会员
-// @namespace         https://soulsign.inu1255.cn?account=inu1255
-// @version           1.0.3
-// @author            inu1255
-// @loginURL          https://zt.wps.cn/2018/clock_in
-// @updateURL         https://soulsign.inu1255.cn/script/inu1255/wps打卡领会员
-// @expire            900000
-// @domain            zt.wps.cn
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file wps打卡领会员签到脚本
- * @author inu1255
- * @version 1.0.3
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>本脚本借鉴 <a href="https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js">NobyDa/Script</a>，需要 cookie 权限获取签到相关参数。</p>
+<p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
+<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
+        
 
-/**
- * @module wps打卡领会员签到脚本
- * @description 本脚本是 [inu1255](https://github.com/inu1255) 所创造，现在该脚本**已失效**！
- * @param {string|string[]} [domain = zt.wps.cn] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/7] - 脚本主页
- * @param {string} [loginURL = https://zt.wps.cn/2018/clock_in] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/wps打卡领会员] - 脚本更新链接
- */
+        
+            
+<div class="section-method">
 
-exports.run = async function () {
-  var { status, data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/get_question', {
-    maxRedirects: 0,
-    validateStatus: s => true
-  });
-  if (status == 302) throw '需要登录';
-  let answer = 1;
-  for (let i = 0; i &lt; data.data.options.length; i++) {
-    let row = data.data.options[i];
-    if (/WPS/.test(row)) {
-      answer = i + 1;
-      break;
-    }
-  }
-  var { data } = await axios.post('https://zt.wps.cn/2018/clock_in/api/answer', { answer });
-  if (data.result != 'ok') throw data.msg;
-  var { data } = await axios.get('https://zt.wps.cn/2018/clock_in/api/clock_in');
-  if (data.msg == '已打卡') return '已打卡';
-  if (data.msg == '不在打卡时间内') return '不在打卡时间内';
-  if (data.result != 'ok') throw data.msg;
-};
 
-exports.check = async function () {
-  var { data } = await axios.get(
-    'https://zt.wps.cn/2018/clock_in/api/sign_up?sid=0&amp;from=&amp;csource='
-  );
-  return data.msg == '已参加挑战' || data.result == 'ok';
-};
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www.iqiyi.com.js.html">www.iqiyi.com.js</a>, <a href="www.iqiyi.com.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    [www.iqiyi.com, tc.vip.iqiyi.com, community.iqiyi.com]
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>grant</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    cookie
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本需要的权限</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/290
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://www.iqiyi.com/u/accountset
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
