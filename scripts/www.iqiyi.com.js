@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              爱奇艺签到
 // @namespace         https://soulsign.inu1255.cn/scripts/290
-// @version           1.0.7
+// @version           1.0.8
 // @author            yi-Xu-0100
 // @loginURL          https://www.iqiyi.com/u/accountset
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
@@ -16,7 +16,7 @@
 /**
  * @file 爱奇艺签到脚本
  * @author yi-Xu-0100
- * @version 1.0.7
+ * @version 1.0.8
  */
 
 /**
@@ -73,13 +73,13 @@ let run = async function (param) {
       message = message + '浏览会员俱乐部，成长值' + (resp.data.data[0]['成长值'] || '未知') + '；';
     else message = message + '浏览会员俱乐部出错，' + resp.data.msg + '；';
   } else message = message + '浏览会员俱乐部出错，' + resp1.data.msg + '；';
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 4; i++) {
     let resp = await axios.get(
       `https://iface2.iqiyi.com/aggregate/3.0/lottery_activity?app_k=0&app_v=0&platform_id=0&dev_os=0&dev_ua=0&net_sts=0&qyid=0&psp_uid=0&psp_cki=${P00001}&psp_status=0&secure_p=0&secure_v=0&req_sn=0`
     );
     if (resp.data.daysurpluschance != 0 || !resp.data.kv.msg)
       message = message + `${resp.data.awardName.replace(/《.+》/, '未中奖')}，`;
-    else if (/明日再来吧/.test(resp.data.kv.msg) || i === 3) {
+    else if (/明日再来吧/.test(resp.data.kv.msg)) {
       message = message.slice(0, -1) + (i === 0 ? '；重复抽奖' : '');
       break;
     } else message = message + `抽奖出错，${resp.data}`;

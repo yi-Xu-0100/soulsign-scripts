@@ -9,7 +9,9 @@
 [![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 [![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 
-个人为 [魂签](https://github.com/inu1255/soulsign-chrome) 制作的签到脚本。
+用于 [inu1255/soulsign-chrome - 魂签](https://github.com/inu1255/soulsign-chrome) 的签到测试脚本。
+
+**本项目仅作学习之用，如有侵权，请联系作者删除。谢谢！如果你有使用、测试和学习，也请在完成之后，删除脚本。**
 
 本仓库脚本介绍网站：[https://github.yixuju.cn/soulsign-scripts/](https://github.yixuju.cn/soulsign-scripts/)
 
@@ -19,9 +21,9 @@
 
 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
 
-## 个人创作的签到脚本集合
+## 个人创作的签到测试脚本集合
 
-统一安装位置： [yi-Xu-0100 创作的魂签脚本](https://soulsign.inu1255.cn/?uid=1176)
+统一安装位置： [yi-Xu-0100 创作的签到测试脚本集合](https://soulsign.inu1255.cn/?uid=1176)
 
 |                                脚本名称                                |             参数              |    权限     |
 | :--------------------------------------------------------------------: | :---------------------------: | :---------: |
@@ -44,7 +46,7 @@
 |   [盛天网络签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/252)   |              无               |     无      |
 |   [漫画补档签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/266)   |              无               |     无      |
 |     [优矿签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/268)     |              无               |     无      |
-|    [爱奇艺签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
+|    [爱奇艺签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
 |    [白嫖云签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
 
 ## 压缩包(build.zip)
@@ -54,7 +56,8 @@
 ### **注意事项：**
 
 1. 本仓库发布的 releases 版本均为个人打包完成，个人打包仓库见 [个人 Fork 的魂签仓库](https://github.com/yi-Xu-0100/soulsign-chrome) 。
-2. 安全问题请自行斟酌，安装方式请使用开发者模式加载压缩包解压后的文件夹。
+2. 安全问题请自行斟酌，安装方式请使用**开发者模式**加载压缩包解压后的文件夹。
+3. **脚本和打包的插件仅用于学习和测试，也请在完成之后，删除脚本，谢谢。**
 
 ## 鸣谢
 
