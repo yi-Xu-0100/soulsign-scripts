@@ -47,7 +47,7 @@
 |   [漫画补档签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/266)   |              无               |     无      |
 |     [优矿签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/268)     |              无               |     无      |
 |    [爱奇艺签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
-|    [白嫖云签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
+|    [白嫖云签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
 
 ## 压缩包(build.zip)
 
