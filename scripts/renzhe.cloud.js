@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              忍者云签到
 // @namespace         https://soulsign.inu1255.cn/scripts/173
-// @version           1.0.9
+// @version           1.0.10
 // @author            yi-Xu-0100
 // @loginURL          https://renzhe.cloud/auth/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/忍者云签到
@@ -15,7 +15,7 @@
  * @file 忍者云签到脚本
  * @author yi-Xu-0100
  * @author marvolo666
- * @version 1.0.9
+ * @version 1.0.10
  */
 
 /**
@@ -55,8 +55,7 @@ let check = async function (param) {
       passwd: param.pwd,
       remember_me: _remember_me
     });
-    if (/登录成功/.test(data.data.msg)) return true;
-    else return false;
+    return /登录成功/.test(data.data.msg);
   }
 };
 
