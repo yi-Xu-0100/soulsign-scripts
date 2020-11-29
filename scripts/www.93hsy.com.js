@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              好书友签到
 // @namespace         https://soulsign.inu1255.cn/scripts/185
-// @version           1.0.8
+// @version           1.0.9
 // @author            yi-Xu-0100
 // @loginURL          https://www.93hsy.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
@@ -15,7 +15,7 @@
  * @file 好书友签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.0.8
+ * @version 1.0.9
  */
 
 /**
@@ -36,13 +36,17 @@
 
 let run = async function (param) {
   if (!check(param)) throw '需要登录';
-  let resp = await axios.get('https://www.93hsy.com/plugin.php?id=k_misign:sign');
+  let resp = await axios.get('https://www.93hsy.com/plugin.php?id=k_misign:sign', {
+    headers: { 'upgrade-insecure-requests': 1 }
+  });
   if (resp.data.includes('您的签到排名')) return '重复签到';
   let result = resp.data.match(/<a id="JD_sign" href="(.*?)"/);
   if (result[1] == 'member.php?mod=logging&action=login') throw '需要登录';
   let resp1 = await axios.get('https://www.93hsy.com/' + result[1]);
   if (/需要先登录/.test(resp1.data)) throw '需要登录';
-  let resp2 = await axios.get('https://www.93hsy.com/plugin.php?id=k_misign:sign');
+  let resp2 = await axios.get('https://www.93hsy.com/plugin.php?id=k_misign:sign', {
+    headers: { 'upgrade-insecure-requests': 1 }
+  });
   if (resp2.data.includes('您的签到排名')) {
     let result = resp2.data.match(/id="lxreward" value="(.*?)"/);
     return '积分奖励: ' + result[1] + ' 银币';
@@ -50,7 +54,9 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+  let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup', {
+    headers: { 'upgrade-insecure-requests': 1 }
+  });
   if (/我的用户组/.test(resp.data)) return true;
   else {
     let resp = await axios.get(
@@ -89,11 +95,14 @@ let check = async function (param) {
         ],
         headers: {
           Origin: 'https://www.93hsy.com',
-          Referer: 'https://www.93hsy.com/member.php?mod=logging&action=login'
+          Referer: 'https://www.93hsy.com/member.php?mod=logging&action=login',
+          'upgrade-insecure-requests': 1
         }
       }
     );
-    let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+    let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup', {
+      headers: { 'upgrade-insecure-requests': 1 }
+    });
     return /我的用户组/.test(resp1.data);
   }
 };
