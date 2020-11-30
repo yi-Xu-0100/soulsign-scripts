@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              好书友签到
 // @namespace         https://soulsign.inu1255.cn/scripts/185
-// @version           1.0.9
+// @version           1.0.11
 // @author            yi-Xu-0100
 // @loginURL          https://www.93hsy.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
@@ -15,7 +15,7 @@
  * @file 好书友签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.0.9
+ * @version 1.0.11
  */
 
 /**
@@ -35,7 +35,7 @@
  */
 
 let run = async function (param) {
-  if (!check(param)) throw '需要登录';
+  if (!(await check(param))) throw '需要登录';
   let resp = await axios.get('https://www.93hsy.com/plugin.php?id=k_misign:sign', {
     headers: { 'upgrade-insecure-requests': 1 }
   });
@@ -54,9 +54,18 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup', {
-    headers: { 'upgrade-insecure-requests': 1 }
-  });
+  let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+  if (/<div class="title">You have verified successfully/.test(resp.data)) {
+    let __CBK = /__CBK=([\w]*)/.exec(resp.data);
+    if (__CBK) {
+      console.log(`[info]: __CBK: ${__CBK[1]}`);
+      __CBK = __CBK[1];
+    } else throw Error('Not Found __CBK');
+    resp = await axios.get(
+      `https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup&__CBK=${__CBK}`
+    );
+  }
+  resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
   if (/我的用户组/.test(resp.data)) return true;
   else {
     let resp = await axios.get(
@@ -64,12 +73,14 @@ let check = async function (param) {
     );
     let formhash = /name="formhash" value="([\w]*)"/.exec(resp.data);
     let loginhash = /loginform_([\w]*)/.exec(resp.data);
-    console.log(formhash[1]);
-    console.log(loginhash[1]);
-    if (formhash) formhash = formhash[1];
-    else formhash = '374e6cbe';
-    if (loginhash) loginhash = loginhash[1];
-    else loginhash = 'LeAAj';
+    if (formhash) {
+      console.log(`[info]: formhash: ${formhash[1]}`);
+      formhash = formhash[1];
+    } else formhash = '374e6cbe';
+    if (loginhash) {
+      console.log(`[info]: loginhash: ${loginhash[1]}`);
+      loginhash = loginhash[1];
+    } else loginhash = 'LeAAj';
     await axios.post(
       `https://www.93hsy.com/member.php?mod=logging&action=login&loginsubmit=yes&loginhash=${loginhash}&inajax=1`,
       {
@@ -100,9 +111,7 @@ let check = async function (param) {
         }
       }
     );
-    let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup', {
-      headers: { 'upgrade-insecure-requests': 1 }
-    });
+    let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
     return /我的用户组/.test(resp1.data);
   }
 };
