@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              好书友签到
 // @namespace         https://soulsign.inu1255.cn/scripts/185
-// @version           1.0.11
+// @version           1.1.0
 // @author            yi-Xu-0100
 // @loginURL          https://www.93hsy.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
@@ -9,13 +9,14 @@
 // @domain            www.93hsy.com
 // @param            name 账户
 // @param            pwd 加密密码
+// @param            timeout 设置true提示timeout错误，其余改为false
 // ==/UserScript==
 
 /**
  * @file 好书友签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.0.11
+ * @version 1.1.0
  */
 
 /**
@@ -32,6 +33,7 @@
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到] - 脚本更新链接
  * @param {string} name - 账户
  * @param {string} pwd - 加密密码
+ * @param {boolean} timeout - 设置为true提示timeout错误，其余改为false
  */
 
 let run = async function (param) {
@@ -54,65 +56,79 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
-  if (/<div class="title">You have verified successfully/.test(resp.data)) {
-    let __CBK = /__CBK=([\w]*)/.exec(resp.data);
-    if (__CBK) {
-      console.log(`[info]: __CBK: ${__CBK[1]}`);
-      __CBK = __CBK[1];
-    } else throw Error('Not Found __CBK');
-    resp = await axios.get(
-      `https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup&__CBK=${__CBK}`
-    );
-  }
-  resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
-  if (/我的用户组/.test(resp.data)) return true;
-  else {
-    let resp = await axios.get(
-      'https://www.93hsy.com/member.php?mod=logging&action=login&infloat=yes&frommessage&inajax=1&ajaxtarget=messagelogin'
-    );
-    let formhash = /name="formhash" value="([\w]*)"/.exec(resp.data);
-    let loginhash = /loginform_([\w]*)/.exec(resp.data);
-    if (formhash) {
-      console.log(`[info]: formhash: ${formhash[1]}`);
-      formhash = formhash[1];
-    } else formhash = '374e6cbe';
-    if (loginhash) {
-      console.log(`[info]: loginhash: ${loginhash[1]}`);
-      loginhash = loginhash[1];
-    } else loginhash = 'LeAAj';
-    await axios.post(
-      `https://www.93hsy.com/member.php?mod=logging&action=login&loginsubmit=yes&loginhash=${loginhash}&inajax=1`,
-      {
-        formhash: formhash,
-        referer: 'https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup',
-        loginfield: 'username',
-        username: param.name,
-        cookietime: '2592000',
-        password: param.pwd,
-        questionid: '0',
-        answer: '',
-        handlekey: 'ls'
-      },
-      {
-        transformRequest: [
-          function (data) {
-            let ret = '';
-            for (let it in data) {
-              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+  try {
+    let resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+
+    if (/<div class="title">You have verified successfully/.test(resp.data)) {
+      let __CBK = /__CBK=([\w]*)/.exec(resp.data);
+      if (__CBK) {
+        console.log(`[info]: __CBK: ${__CBK[1]}`);
+        __CBK = __CBK[1];
+      } else throw Error('Not Found __CBK');
+      resp = await axios.get(
+        `https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup&__CBK=${__CBK}`
+      );
+    }
+    resp = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+    if (/我的用户组/.test(resp.data)) return true;
+    else {
+      let resp = await axios.get(
+        'https://www.93hsy.com/member.php?mod=logging&action=login&infloat=yes&frommessage&inajax=1&ajaxtarget=messagelogin'
+      );
+      let formhash = /name="formhash" value="([\w]*)"/.exec(resp.data);
+      let loginhash = /loginform_([\w]*)/.exec(resp.data);
+      if (formhash) {
+        console.log(`[info]: formhash: ${formhash[1]}`);
+        formhash = formhash[1];
+      } else formhash = '374e6cbe';
+      if (loginhash) {
+        console.log(`[info]: loginhash: ${loginhash[1]}`);
+        loginhash = loginhash[1];
+      } else loginhash = 'LeAAj';
+      await axios.post(
+        `https://www.93hsy.com/member.php?mod=logging&action=login&loginsubmit=yes&loginhash=${loginhash}&inajax=1`,
+        {
+          formhash: formhash,
+          referer: 'https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup',
+          loginfield: 'username',
+          username: param.name,
+          cookietime: '2592000',
+          password: param.pwd,
+          questionid: '0',
+          answer: '',
+          handlekey: 'ls'
+        },
+        {
+          transformRequest: [
+            function (data) {
+              let ret = '';
+              for (let it in data) {
+                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+              }
+              return ret.substr(0, ret.length - 1);
             }
-            return ret.substr(0, ret.length - 1);
+          ],
+          headers: {
+            Origin: 'https://www.93hsy.com',
+            Referer: 'https://www.93hsy.com/member.php?mod=logging&action=login',
+            'upgrade-insecure-requests': 1
           }
-        ],
-        headers: {
-          Origin: 'https://www.93hsy.com',
-          Referer: 'https://www.93hsy.com/member.php?mod=logging&action=login',
-          'upgrade-insecure-requests': 1
         }
-      }
-    );
-    let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
-    return /我的用户组/.test(resp1.data);
+      );
+      let resp1 = await axios.get('https://www.93hsy.com/home.php?mod=spacecp&ac=usergroup');
+      return /我的用户组/.test(resp1.data);
+    }
+  } catch (e) {
+    if (param.timeout === 'true') param.timeout = true;
+    else param.timeout = false;
+    if (e.message === 'timeout of 10000ms exceeded' && !param.timeout) {
+      console.log(`[info]: 好书友签到脚本检查在线状态超时`);
+      return true;
+    }
+    console.log(e);
+    console.log(e.message);
+    console.log(e.code);
+    throw e;
   }
 };
 
