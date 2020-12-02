@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              好书友签到
 // @namespace         https://soulsign.inu1255.cn/scripts/185
-// @version           1.1.0
+// @version           1.1.1
 // @author            yi-Xu-0100
 // @loginURL          https://www.93hsy.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
@@ -10,13 +10,14 @@
 // @param            name 账户
 // @param            pwd 加密密码
 // @param            timeout 设置true提示timeout错误，其余改为false
+// @param            code468 设置true提示code468错误，其余改为false
 // ==/UserScript==
 
 /**
  * @file 好书友签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 /**
@@ -34,6 +35,7 @@
  * @param {string} name - 账户
  * @param {string} pwd - 加密密码
  * @param {boolean} timeout - 设置为true提示timeout错误，其余改为false
+// @param {boolean} code468 - 设置true提示code468错误，其余改为false
  */
 
 let run = async function (param) {
@@ -121,8 +123,14 @@ let check = async function (param) {
   } catch (e) {
     if (param.timeout === 'true') param.timeout = true;
     else param.timeout = false;
+    if (param.code468 === 'true') param.code468 = true;
+    else param.code468 = false;
     if (e.message === 'timeout of 10000ms exceeded' && !param.timeout) {
       console.log(`[info]: 好书友签到脚本检查在线状态超时`);
+      return true;
+    }
+    if (e.message === 'Request failed with status code 468' && !param.code468) {
+      console.log(`[info]: 好书友签到脚本检查在线状态失败，HTTP 响应码: 468`);
       return true;
     }
     console.log(e);
