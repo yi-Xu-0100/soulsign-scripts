@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              geekhub
 // @namespace         https://soulsign.inu1255.cn/scripts/172
-// @version           1.1.2
+// @version           1.1.3
 // @author            yi-Xu-0100
 // @loginURL          https://geekhub.com/users/sign_in
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/geekhub
@@ -12,7 +12,7 @@
 /**
  * @file geekhub签到脚本
  * @author yi-Xu-0100
- * @version 1.1.2
+ * @version 1.1.3
  */
 
 /**
@@ -33,14 +33,21 @@ function getGbit(data) {
   );
   classicalModeGbit = data.match(/<div class="w-3\/12">\s+<div>(\d*)<\/div>/);
   if (geekModeGbit == null && classicalModeGbit == null) return [false, 'noGbit'];
-  else return [true, geekModeGbit != null ? geekModeGbit[1] : classicalModeGbit[1]];
+  else if (geekModeGbit != null) {
+    console.log(`geekModeGbit: ${geekModeGbit[1]}`);
+    return [true, geekModeGbit[1]];
+  } else if (classicalModeGbit != null) {
+    console.log(`classicalModeGbit: ${classicalModeGbit[1]}`);
+    return [true, classicalModeGbit[1]];
+  }
 }
-exports.run = async function (param) {
+let run = async function (param) {
+  if (!(await check(param))) throw '需要登录';
   let resp = await axios.get('https://geekhub.com/checkins');
-  if (resp.data.includes('今日已签到')) return '重复签到';
-  if (resp.data.includes('您需要登录后才能继续')) throw '未登录';
+  if (/今日已签到/.test(resp.data)) return '重复签到';
   let result = resp.data.match(/<meta name="csrf-token" content="(.*?)"/);
   let originGbit = getGbit(resp.data);
+  if (originGbit[0]) console.log(`originGbit: ${originGbit[1]}`);
   let resp1 = await axios.post(
     'https://geekhub.com/checkins/start',
     '_method=post&authenticity_token=' + encodeURIComponent(result[1]),
@@ -53,12 +60,15 @@ exports.run = async function (param) {
   );
   if (/今日已签到/.test(resp1.data)) {
     let todayGbit = getGbit(resp1.data);
+    if (todayGbit[0]) console.log(`todayGbit: ${todayGbit[1]}`);
     if (!originGbit[0] && !todayGbit[0]) return '成功签到，但无法获取 Gbit 数量';
     else return '今日获得 ' + (todayGbit[1] - originGbit[1]) + ' Gbit';
-  } else throw /您需要登录后才能继续/.test(resp1.data) ? '未登录' : '签到失败';
+  } else throw /你需要登录后才能继续/.test(resp1.data) ? '需要登录' : '签到失败';
 };
 
-exports.check = async function (param) {
-  let resp = await axios.get('https://geekhub.com/checkins');
-  return !/您需要登录后才能继续/.test(resp.data);
+let check = async function (param) {
+  let resp = await axios.get('https://geekhub.com/settings');
+  return !/你需要登录后才能继续/.test(resp.data);
 };
+
+module.exports = { run, check };
