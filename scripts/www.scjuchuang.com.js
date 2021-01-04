@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              聚创
 // @namespace         https://soulsign.inu1255.cn/scripts/186
-// @version           1.0.5
+// @version           1.0.6
 // @author            yi-Xu-0100
 // @loginURL          https://www.scjuchuang.com/login/index
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/聚创
@@ -14,12 +14,14 @@
 /**
  * @file 聚创签到脚本
  * @author yi-Xu-0100
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 /**
  * @module 聚创签到脚本
- * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * @description 本脚本提供设置用户名和密码方式自动登陆。但是网站应自定义一个 `userinfo` 的 `cookie` 条目作为部分页面判断登录状态依据，脚本无法完成该设置。如果网页提示信息有问题，请访问 [聚创医药网登录页面](https://www.scjuchuang.com/login) 重新登录。
+ * 
+ * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
  * @param {string|string[]} [domain = www.scjuchuang.com] - 请求的域名
