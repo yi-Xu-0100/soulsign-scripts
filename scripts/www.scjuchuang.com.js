@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              聚创
 // @namespace         https://soulsign.inu1255.cn/scripts/186
-// @version           1.0.6
+// @version           1.0.7
 // @author            yi-Xu-0100
 // @loginURL          https://www.scjuchuang.com/login/index
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/聚创
@@ -14,7 +14,7 @@
 /**
  * @file 聚创签到脚本
  * @author yi-Xu-0100
- * @version 1.0.6
+ * @version 1.0.7
  */
 
 /**
@@ -44,6 +44,7 @@ let run = async function (param) {
   if (/签到成功/.test(resp.data.msg))
     return `今日获得 ${resp.data.data.integral}积分，已连续签到 ${resp.data.data.continue_count} 天`;
   if (/今日已签到/.test(resp.data.msg)) return '重复签到';
+  if (/请登录/.test(resp.data.msg)) throw "需要登录";
   throw resp.data;
 };
 
