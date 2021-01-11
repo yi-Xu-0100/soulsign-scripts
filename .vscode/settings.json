@@ -31,7 +31,12 @@
     "signhtml",
     "sketchupbar",
     "spacecp",
+    "userinfo",
     "vild",
     "yanglbme"
+  ],
+  "cSpell.ignoreWords": [
+    "feng",
+    "wfdata"
   ]
 }

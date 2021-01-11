@@ -7,7 +7,9 @@
 [![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 [![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
+[![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 [![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
+[![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 
 用于 [inu1255/soulsign-chrome - 魂签](https://github.com/inu1255/soulsign-chrome) 的签到测试脚本。
 
@@ -31,15 +33,14 @@
 |   [忍者云签到脚本 V1.0.11](https://soulsign.inu1255.cn/scripts/173)    |       帐号密码自动登陆        |     无      |
 |   [geekhub 签到脚本 V1.2.0](https://soulsign.inu1255.cn/scripts/172)   |              无               |     无      |
 |    [好书友签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/185)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|     [聚创签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/186)     |              无               | 获取 cookie |
+|     [聚创签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/186)     |       帐号密码自动登陆        |             |
 |   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 |    [GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)    |              无               |     无      |
 | [sketchupbar 签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
-|    [威锋网签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动登陆        | 获取 cookie |
+|    [威锋网签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动签到        |             |
 |    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
-|   [百度文库签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 |  [51NB 论坛签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
 | [人大经济论坛签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
 |  [比特球云盘签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/251)  |              无               |     无      |
