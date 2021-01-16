@@ -1,6 +1,6 @@
 # soulsign-scripts
 
-[![sync2gitee(list)](<https://github.com/yi-Xu-0100/hub-mirror/workflows/sync2gitee(list)/badge.svg>)](https://github.com/yi-Xu-0100/hub-mirror)
+[![sync2gitee](<https://github.com/yi-Xu-0100/soulsign-scripts/workflows/sync/badge.svg>)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/main/.github/workflows/sync.yml)
 [![Jsdoc](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
 [![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
@@ -29,17 +29,17 @@
 
 |                                脚本名称                                |             参数              |    权限     |
 | :--------------------------------------------------------------------: | :---------------------------: | :---------: |
-|    [阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|   [忍者云签到脚本 V1.0.11](https://soulsign.inu1255.cn/scripts/173)    |       帐号密码自动登陆        |     无      |
 |   [geekhub 签到脚本 V1.2.0](https://soulsign.inu1255.cn/scripts/172)   |              无               |     无      |
+|   [忍者云签到脚本 V1.0.11](https://soulsign.inu1255.cn/scripts/173)    |       帐号密码自动登陆        |     无      |
+|    [阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |    [好书友签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/185)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|     [聚创签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/186)     |       帐号密码自动登陆        |             |
+|     [聚创签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/186)     |       帐号密码自动登陆        |     无      |
 |   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 |    [GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)    |              无               |     无      |
 | [sketchupbar 签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
-|    [威锋网签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动签到        |             |
+|    [威锋网签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动签到        |     无      |
 |    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
 |  [51NB 论坛签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
 | [人大经济论坛签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
@@ -51,9 +51,9 @@
 |    [白嫖云签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
 |    [v2ex 签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/378)     |              无               |     无      |
 
-## 压缩包(build.zip)
+## 压缩包(build[version].zip)
 
-个人使用的 [魂签](https://github.com/inu1255/soulsign-chrome) 扩展压缩包，主要是备份，和同步更新。
+[魂签](https://github.com/inu1255/soulsign-chrome) 扩展压缩包，主要是备份，和同步更新。**注意本仓库的版本非自动更新版本**
 
 ### **注意事项：**
 
