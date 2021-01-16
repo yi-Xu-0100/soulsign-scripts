@@ -3,7 +3,6 @@
 [![sync2gitee](<https://github.com/yi-Xu-0100/soulsign-scripts/workflows/sync/badge.svg>)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/main/.github/workflows/sync.yml)
 [![Jsdoc](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
-[![Github latest release](https://img.shields.io/github/v/release/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts/releases)
 [![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 [![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
