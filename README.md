@@ -1,14 +1,14 @@
 # soulsign-scripts
 
-[![sync2gitee](<https://github.com/yi-Xu-0100/soulsign-scripts/workflows/sync/badge.svg>)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/main/.github/workflows/sync.yml)
+[![sync2gitee](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/sync/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/blob/main/.github/workflows/sync.yml)
 [![Jsdoc](https://github.com/yi-Xu-0100/soulsign-scripts/workflows/Jsdoc/badge.svg)](https://github.com/yi-Xu-0100/soulsign-scripts/actions?query=workflow%3AJsdoc)
 [![Github last commit](https://img.shields.io/github/last-commit/yi-Xu-0100/soulsign-scripts)](https://github.com/yi-Xu-0100/soulsign-scripts)
 [![Github license](https://img.shields.io/github/license/yi-Xu-0100/soulsign-scripts)](./LICENSE)
 
 [![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
-[![views](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
+[![views per week](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/views_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 [![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
-[![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
+[![clones per week](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-soulsign-scripts/clones_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-soulsign-scripts)
 
 用于 [inu1255/soulsign-chrome - 魂签](https://github.com/inu1255/soulsign-chrome) 的签到测试脚本。
 
@@ -49,6 +49,7 @@
 |    [爱奇艺签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
 |    [白嫖云签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
 |    [v2ex 签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/378)     |              无               |     无      |
+|  [鱼 C 论坛签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/392)   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 
 ## 压缩包(build[version].zip)
 
