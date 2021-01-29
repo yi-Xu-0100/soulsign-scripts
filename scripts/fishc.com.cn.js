@@ -1,21 +1,21 @@
 // ==UserScript==
 // @name              鱼C论坛
 // @namespace         https://soulsign.inu1255.cn/scripts/392
-// @version           1.0.0
+// @version           1.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://fishc.com.cn
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/鱼C论坛
 // @expire            900000
 // @domain            fishc.com.cn
 // @param             name 账户
-// @param             pwd 密码
+// @param             pwd 加密密码(md5)
 // ==/UserScript==
 
 /**
  * @file 鱼C论坛签到脚本
  * @author yi-Xu-0100
  * @author ViCrack
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -31,7 +31,7 @@
  * @param {string} [loginURL = https://fishc.com.cn] - 登录链接
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/鱼C论坛] - 脚本更新链接
  * @param {string} name - 账户
- * @param {string} pwd - 密码
+ * @param {string} pwd - 加密密码(md5)
  */
 
 let run = async function (param) {
@@ -39,12 +39,12 @@ let run = async function (param) {
   var resp = await axios.get('https://fishc.com.cn/plugin.php?id=k_misign:sign');
   if (/您的签到排名/.test(resp.data)) return '重复签到';
   let result = resp.data.match(/<a id="JD_sign" href="(.*?)"/);
-  if (result == null) return 'Not found JD_sign';
+  if (result == null) throw 'Not found JD_sign';
   var resp1 = await axios.get('https://fishc.com.cn/' + result[1]);
   if (/今日已签/.test(resp1.data)) return '重复签到';
   if (/需要先登录/.test(resp1.data)) throw '需要登录';
   var resp2 = await axios.get('https://fishc.com.cn/plugin.php?id=k_misign:sign');
-  if (/'您的签到排名'/.test(resp2.data)) {
+  if (/您的签到排名/.test(resp2.data)) {
     let result = resp2.data.match(/class="hidnum" id="lxreward" value="(.*?)"/);
     return '签到奖励: ' + result[1] + ' 鱼币';
   } else throw '未成功签到';

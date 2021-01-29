@@ -49,7 +49,7 @@
 |    [爱奇艺签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
 |    [白嫖云签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
 |    [v2ex 签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/378)     |              无               |     无      |
-|  [鱼 C 论坛签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/392)   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|  [鱼 C 论坛签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/392)   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 
 ## 压缩包(build[version].zip)
 
