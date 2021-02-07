@@ -35,7 +35,7 @@
 |     [聚创签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/186)     |       帐号密码自动登陆        |     无      |
 |   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
 |    [GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)    |              无               |     无      |
-| [sketchupbar 签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
+| [sketchupbar 签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
 |    [威锋网签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动签到        |     无      |
