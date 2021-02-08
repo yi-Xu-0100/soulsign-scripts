@@ -5,3 +5,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    assignees:
+      - 'yi-Xu-0100'
+    commit-message:
+      prefix: '⬆ '
