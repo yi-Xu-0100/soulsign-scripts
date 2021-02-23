@@ -55,7 +55,7 @@ jobs:
           ls -la ${{ github.workspace }}/hub-mirror-cache
 
       - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@v1.2.6
+        uses: yanglbme/gitee-pages-action@v1.2.7
         with:
           gitee-username: yiXu0100
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
