@@ -26,34 +26,59 @@
 
 统一安装位置： [yi-Xu-0100 创作的签到测试脚本集合](https://soulsign.inu1255.cn/?uid=1176)
 
-|                                脚本名称                                |             参数              |    权限     |
-| :--------------------------------------------------------------------: | :---------------------------: | :---------: |
-|   [geekhub 签到脚本 V1.2.0](https://soulsign.inu1255.cn/scripts/172)   |              无               |     无      |
-|   [忍者云签到脚本 V1.0.11](https://soulsign.inu1255.cn/scripts/173)    |       帐号密码自动登陆        |     无      |
-|    [阅次元签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/174)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|    [好书友签到脚本 V1.1.1](https://soulsign.inu1255.cn/scripts/185)    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|     [聚创签到脚本 V1.0.7](https://soulsign.inu1255.cn/scripts/186)     |       帐号密码自动登陆        |     无      |
-|   [力扣中国签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/191)   |              无               |     无      |
-|    [GORPG 签到脚本 V1.0.0](https://soulsign.inu1255.cn/scripts/192)    |              无               |     无      |
-| [sketchupbar 签到脚本 V1.0.6](https://soulsign.inu1255.cn/scripts/198) |              无               |     无      |
-|  [什么值得买签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/206)  |              无               |     无      |
-|  [网易云音乐签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/233)  |              无               |     无      |
-|    [威锋网签到脚本 V1.0.4](https://soulsign.inu1255.cn/scripts/235)    |       帐号密码自动签到        |     无      |
-|    [迅维网签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/238)    |              无               |     无      |
-|  [51NB 论坛签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/248)   |              无               |     无      |
-| [人大经济论坛签到脚本 V1.0.5](https://soulsign.inu1255.cn/scripts/249) |              无               |     无      |
-|  [比特球云盘签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/251)  |              无               |     无      |
-|   [盛天网络签到脚本 V1.0.3](https://soulsign.inu1255.cn/scripts/252)   |              无               |     无      |
-|   [漫画补档签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/266)   |              无               |     无      |
-|     [优矿签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/268)     |              无               |     无      |
-|    [爱奇艺签到脚本 V1.0.8](https://soulsign.inu1255.cn/scripts/290)    |              无               | 获取 cookie |
-|    [白嫖云签到脚本 V1.0.2](https://soulsign.inu1255.cn/scripts/293)    |       帐号密码自动登陆        |     无      |
-|    [v2ex 签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/378)     |              无               |     无      |
-|  [鱼 C 论坛签到脚本 V1.0.1](https://soulsign.inu1255.cn/scripts/392)   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|           脚本名称            |             参数              |    权限     |
+| :---------------------------: | :---------------------------: | :---------: |
+|   [geekhub 签到脚本 V1.2.0]   |              无               |     无      |
+|   [忍者云签到脚本 V1.0.11]    |       帐号密码自动登陆        |     无      |
+|    [阅次元签到脚本 V1.0.5]    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|    [好书友签到脚本 V1.1.1]    | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|     [聚创签到脚本 V1.0.7]     |       帐号密码自动登陆        |     无      |
+|   [力扣中国签到脚本 V1.0.2]   |              无               |     无      |
+|    [GORPG 签到脚本 V1.0.0]    |              无               |     无      |
+| [sketchupbar 签到脚本 V1.0.6] |              无               |     无      |
+|  [什么值得买签到脚本 V1.0.2]  |              无               |     无      |
+|  [网易云音乐签到脚本 V1.0.4]  |              无               |     无      |
+|    [威锋网签到脚本 V1.0.4]    |       帐号密码自动签到        |     无      |
+|    [迅维网签到脚本 V1.0.1]    |              无               |     无      |
+|  [51NB 论坛签到脚本 V1.0.8]   |              无               |     无      |
+| [人大经济论坛签到脚本 V1.0.5] |              无               |     无      |
+|  [比特球云盘签到脚本 V1.0.2]  |              无               |     无      |
+|   [盛天网络签到脚本 V1.0.3]   |              无               |     无      |
+|   [漫画补档签到脚本 V1.0.2]   |              无               |     无      |
+|     [优矿签到脚本 V1.0.1]     |              无               |     无      |
+|    [爱奇艺签到脚本 V1.0.8]    |              无               | 获取 cookie |
+|    [白嫖云签到脚本 V1.0.2]    |       帐号密码自动登陆        |     无      |
+|    [v2ex 签到脚本 V1.0.1]     |              无               |     无      |
+|  [鱼 C 论坛签到脚本 V1.0.1]   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|    [科研通签到脚本 V1.0.0]    |       帐号密码自动登陆        |     无      |
+
+[geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
+[忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
+[阅次元签到脚本 v1.0.5]: https://soulsign.inu1255.cn/scripts/174
+[好书友签到脚本 v1.1.1]: https://soulsign.inu1255.cn/scripts/185
+[聚创签到脚本 v1.0.7]: https://soulsign.inu1255.cn/scripts/186
+[力扣中国签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/191
+[gorpg 签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/192
+[sketchupbar 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/198
+[什么值得买签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/206
+[网易云音乐签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/233
+[威锋网签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/235
+[迅维网签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/238
+[51nb 论坛签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/248
+[人大经济论坛签到脚本 v1.0.5]: https://soulsign.inu1255.cn/scripts/249
+[比特球云盘签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/251
+[盛天网络签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/252
+[漫画补档签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/266
+[优矿签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/268
+[爱奇艺签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/290
+[白嫖云签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/293
+[v2ex 签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/378
+[鱼 c 论坛签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/392
+[科研通签到脚本 V1.0.0]： https://soulsign.inu1255.cn/scripts/414
 
 ## 压缩包(build[version].zip)
 
-[魂签](https://github.com/inu1255/soulsign-chrome) 扩展压缩包，主要是备份，和同步更新。**注意本仓库的版本非自动更新版本**
+[魂签](https://github.com/inu1255/soulsign-chrome) 扩展压缩包，主要是备份，和同步更新。**注意: 本仓库的版本非自动更新版本!**
 
 ### **注意事项：**
 

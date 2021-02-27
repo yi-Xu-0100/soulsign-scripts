@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>www.feng.com.js - Documentation</title>
+    <title>科研通签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,98 +29,449 @@
 
 <div id="main">
     
-    <h1 class="page-title">www.feng.com.js</h1>
+    <h1 class="page-title">科研通签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              威锋网
-// @namespace         https://soulsign.inu1255.cn/scripts/235
-// @version           1.0.4
-// @author            yi-Xu-0100
-// @loginURL          https://www.feng.com/login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/威锋网
-// @expire            900000
-// @domain            api.wfdata.club
-// @param            name 账户
-// @param            pwd 密码
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file 威锋网签到脚本
- * @author yi-Xu-0100
- * @version 1.0.4
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>本脚本提供设置用户名和密码方式自动登陆。</p>
+<p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
+<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
+        
 
-/**
- * @module 威锋网签到脚本
- * @description 脚本提供设置用户名和密码方式自动签到，但 cookie 信息无法保存，即不会自动登录。
- *
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- *
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = api.wfdata.club] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/235] - 脚本主页
- * @param {string} [loginURL = https://www.feng.com/login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/威锋网] - 脚本更新链接
- * @param {string} name - 账户
- * @param {string} pwd - 密码
- */
+        
+            
+<div class="section-method">
 
-let signIn = async function (param) {
-  var resp = await axios.post(
-    'https://api.wfdata.club/v1/auth/signin',
-    `account=${param.name}&amp;password=${param.pwd}`,
-    {
-      headers: {
-        Origin: 'https://www.feng.com',
-        Referer: 'https://www.feng.com/',
-        'X-Request-Id': 'qPGH1Pl6jyF+VvNdxEXgW6aHNVBxUVKXSc7hkhT2pscrDyUYqDl8pRBd3pjdWqOX'
-      }
-    }
-  );
-  return {
-    success: resp.data.status.message === 'success',
-    accessToken: resp.data.data.accessToken
-  };
-};
 
-let run = async function (param) {
-  var { success, accessToken } = await signIn(param);
-  if (!success) throw '需要登录';
-  var resp = await axios.post('https://api.wfdata.club/v1/attendance/userSignIn', null, {
-    headers: {
-      Origin: 'https://www.feng.com',
-      Referer: 'https://www.feng.com/',
-      'X-Access-Token': accessToken,
-      'X-Request-Id':
-        'WDQKt2+dxMxPlIA4Wz5yf9l2x4N3rKqe65uuHK/Bejny5n6HnQFQ/1M4IAalbcTwRCmIXqT4sbZkc9yl1tAlfA=='
-    }
-  });
-  if (resp.data.status.message === 'success') {
-    return (
-      `获得经验 ${resp.data.data.getWeTicket} 点` +
-      (resp.data.data.extraWeTicket != '0' ? `，额外经验 ${resp.data.data.extraWeTicket} 点` : '')
-    );
-  } else if (/重复签到/.test(resp.data.status.message)) return '重复签到';
-  else throw resp.data.status.message;
-};
 
-let check = async function (param) {
-  return (await signIn(param)).success;
-};
 
-module.exports = { run, check };
-</code></pre>
-        </article>
-    </section>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www.ablesci.com.js.html">www.ablesci.com.js</a>, <a href="www.ablesci.com.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    www.ablesci.com
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/414
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://www.ablesci.com/my/info
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/科研通
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>账户</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pwd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>密码</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
