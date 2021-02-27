@@ -2,17 +2,23 @@ name: Jsdoc
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    paths:
+      - '**.js'
+      - conf.json
+      - README.md
+      - LICENSE
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
 
-      - name: Build
-        uses: andstor/jsdoc-action@v1
+      - name: Build jsdoc
+        uses: andstor/jsdoc-action@v1.2.0
         with:
           source_dir: ./scripts
           output_dir: ./docs
@@ -25,8 +31,8 @@ jobs:
           cp ./LICENSE ./docs/
           cp ./README.md ./docs/
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy gh-page
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs

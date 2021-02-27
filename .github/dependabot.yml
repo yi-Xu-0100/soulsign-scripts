@@ -8,4 +8,4 @@ updates:
     assignees:
       - 'yi-Xu-0100'
     commit-message:
-      prefix: '⬆ '
+      prefix: 'chore(deps): ⬆ '
