@@ -46,7 +46,7 @@
 |   [盛天网络签到脚本 V1.0.3]   |              无               |     无      |
 |   [漫画补档签到脚本 V1.0.2]   |              无               |     无      |
 |     [优矿签到脚本 V1.0.1]     |              无               |     无      |
-|    [爱奇艺签到脚本 V1.0.8]    |              无               | 获取 cookie |
+|    [爱奇艺签到脚本 V1.0.9]    |              无               | 获取 cookie |
 |    [白嫖云签到脚本 V1.0.2]    |       帐号密码自动登陆        |     无      |
 |    [v2ex 签到脚本 V1.0.1]     |              无               |     无      |
 |  [鱼 C 论坛签到脚本 V1.0.1]   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
@@ -70,11 +70,11 @@
 [盛天网络签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/252
 [漫画补档签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/266
 [优矿签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/268
-[爱奇艺签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/290
+[爱奇艺签到脚本 v1.0.9]: https://soulsign.inu1255.cn/scripts/290
 [白嫖云签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/293
 [v2ex 签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/378
 [鱼 c 论坛签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/392
-[科研通签到脚本 V1.0.0]: https://soulsign.inu1255.cn/scripts/414
+[科研通签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/414
 
 ## 压缩包(build[version].zip)
 
