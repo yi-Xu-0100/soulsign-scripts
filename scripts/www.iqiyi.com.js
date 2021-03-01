@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              爱奇艺签到
 // @namespace         https://soulsign.inu1255.cn/scripts/290
-// @version           1.0.8
+// @version           1.0.9
 // @author            yi-Xu-0100
 // @loginURL          https://www.iqiyi.com/u/accountset
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
@@ -16,7 +16,7 @@
 /**
  * @file 爱奇艺签到脚本
  * @author yi-Xu-0100
- * @version 1.0.8
+ * @version 1.0.9
  */
 
 /**
@@ -70,7 +70,11 @@ let run = async function (param) {
       `https://tc.vip.iqiyi.com/taskCenter/task/getTaskRewards?P00001=${P00001}&taskCode=b6e688905d4e7184&dfp=${dfp}&platform=b6c13e26323c537d&lang=zh_CN&app_lm=cn&deviceID=${deviceID}&token=&multiReward=1&fv=bed99b2cf5722bfe`
     );
     if (resp.data.code === 'A00000')
-      message = message + '浏览会员俱乐部，成长值' + (resp.data.data[0]['成长值'] || '未知') + '；';
+      message =
+        message +
+        '浏览会员俱乐部，成长值' +
+        ((resp.data.data[0] && resp.data.data[0]['成长值']) || '未知') +
+        '；';
     else message = message + '浏览会员俱乐部出错，' + resp.data.msg + '；';
   } else message = message + '浏览会员俱乐部出错，' + resp1.data.msg + '；';
   for (let i = 0; i < 4; i++) {
