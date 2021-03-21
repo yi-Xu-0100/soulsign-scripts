@@ -38,7 +38,7 @@
 | [sketchupbar 签到脚本 V1.0.6] |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2]  |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.4]  |              无               |     无      |
-|    [威锋网签到脚本 V1.0.4]    |       帐号密码自动签到        |     无      |
+|    [威锋网签到脚本 V2.0.0]    |              无               | 获取 cookie |
 |    [迅维网签到脚本 V1.0.1]    |              无               |     无      |
 |  [51NB 论坛签到脚本 V1.0.8]   |              无               |     无      |
 | [人大经济论坛签到脚本 V1.0.5] |              无               |     无      |
@@ -62,7 +62,7 @@
 [sketchupbar 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/198
 [什么值得买签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/206
 [网易云音乐签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/233
-[威锋网签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/235
+[威锋网签到脚本 v2.0.0]: https://soulsign.inu1255.cn/scripts/235
 [迅维网签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/238
 [51nb 论坛签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/248
 [人大经济论坛签到脚本 v1.0.5]: https://soulsign.inu1255.cn/scripts/249
