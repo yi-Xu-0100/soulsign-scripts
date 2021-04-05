@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              威锋网
 // @namespace         https://soulsign.inu1255.cn/scripts/235
-// @version           2.0.0
+// @version           2.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://www.feng.com/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/威锋网
@@ -13,7 +13,7 @@
 /**
  * @file 威锋网签到脚本
  * @author yi-Xu-0100
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -31,12 +31,12 @@
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/威锋网] - 脚本更新链接
  */
 
- let getAccessToken = async function (param) {
-  const userInfo = decodeURI(await getCookie('https://www.feng.com/','userInfo'));
-  const accessToken = JSON.parse(userInfo.replace(/%2C/g,",")).accessToken;
+let getAccessToken = async function (param) {
+  const userInfo = decodeURI(await getCookie('https://www.feng.com/', 'userInfo')) || '';
+  const _userInfo = JSON.parse(userInfo.replace(/%2C/g, ',')) || '';
   return {
-    success: !!accessToken,
-    accessToken: accessToken
+    success: !!_userInfo,
+    accessToken: _userInfo && _userInfo.accessToken
   };
 };
 
@@ -63,6 +63,6 @@ let run = async function (param) {
 
 let check = async function (param) {
   return (await getAccessToken(param)).success;
-}
+};
 
 module.exports = { run, check };
