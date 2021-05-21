@@ -6,11 +6,6 @@ name: sync
 # lastmod: 2020-12-10 09:24:45
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ['jsdoc']
-    branches: [main]
-    types:
-      - completed
 
 jobs:
   run:
