@@ -62,7 +62,7 @@
 [gorpg 签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/192
 [sketchupbar 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/198
 [什么值得买签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/206
-[网易云音乐签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/233
+[网易云音乐签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/233
 [威锋网签到脚本 v2.0.0]: https://soulsign.inu1255.cn/scripts/235
 [迅维网签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/238
 [51nb 论坛签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/248
