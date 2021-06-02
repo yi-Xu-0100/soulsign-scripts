@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              星辰签到
 // @namespace         https://soulsign.inu1255.cn/scripts/461
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://xingxinggo.us/auth/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/星辰签到
@@ -15,7 +15,7 @@
  * @file 星辰签到脚本
  * @author yi-Xu-0100
  * @author marvolo666
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -42,7 +42,7 @@ let run = async function (param) {
   var data = await axios.post(`https://${_domain}/user/checkin`);
   if (/成功/.test(data.data.msg)) return data.data.msg;
   else if (/您似乎已经签到过了/.test(data.data.msg)) return '重复签到';
-  else if (/获得了 \d{0,4} MB流量/.test(data.data.msg)) return data.data.msg;
+  else if (/获得了\s?\d{0,4}\s?MB\s?流量/.test(data.data.msg)) return data.data.msg;
   else throw data.data;
 };
 
