@@ -52,6 +52,7 @@
 |  [鱼 C 论坛签到脚本 V1.0.1]   | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |    [科研通签到脚本 V1.0.0]    |       帐号密码自动登陆        |     无      |
 |     [星辰签到脚本 V1.0.2]     |       帐号密码自动登陆        |     无      |
+|     [几鸡签到脚本 V1.0.0]     |       帐号密码自动登陆        |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
@@ -77,6 +78,7 @@
 [鱼 c 论坛签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/392
 [科研通签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/414
 [星辰签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/461
+[几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
 
 ## 压缩包(build[version].zip)
 
