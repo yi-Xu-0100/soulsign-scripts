@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>爱奇艺签到脚本 - Documentation</title>
+    <title>muchong.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,458 +29,69 @@
 
 <div id="main">
     
-    <h1 class="page-title">爱奇艺签到脚本</h1>
+    <h1 class="page-title">muchong.com.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>本脚本借鉴 <a href="https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js">NobyDa/Script</a>，需要 cookie 权限获取签到相关参数。</p>
-<p>仅完成 VIP 签到、 VIP 浏览会员俱乐部任务和抽奖活动。</p>
-<p>抽奖活动无需 VIP，默认以错误提示 VIP 过期，可设置参数 VIP_EXPIRED 为 false 取消错误提示。</p>
-<p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
-<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
-        
-
-        
-            
-<div class="section-method">
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www.iqiyi.com.js.html">www.iqiyi.com.js</a>, <a href="www.iqiyi.com.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>domain</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-|
-
-<span class="param-type"><code>Array.&lt;string></code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    [www.iqiyi.com, tc.vip.iqiyi.com, iface2.iqiyi.com]
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>请求的域名</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>grant</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-|
-
-<span class="param-type"><code>Array.&lt;string></code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    cookie
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>脚本需要的权限</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>expire</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    900000
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>在线检查频率</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>namespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    https://soulsign.inu1255.cn/scripts/290
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>脚本主页</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>loginURL</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    https://www.iqiyi.com/u/accountset
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>登录链接</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>updateURL</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    https://soulsign.inu1255.cn/script/yi-Xu-0100/爱奇艺签到
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>脚本更新链接</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>VIP_EXPIRED_INFO</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>string</code></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">
-                <p>设置为false取消VIP过期错误提示</p>
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// ==UserScript==
+// @name              小木虫签到
+// @namespace         https://soulsign.inu1255.cn/scripts/537
+// @version           1.0.1
+// @author            yi-Xu-0100
+// @loginURL          http://muchong.com/bbs/logging.php?action=login
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/小木虫签到
+// @expire            900000
+// @domain            muchong.com
+// ==/UserScript==
+
+/**
+ * @file 小木虫签到脚本
+ * @author yi-Xu-0100
+ * @version 1.0.1
+ */
+
+/**
+ * @module 小木虫签到脚本
+ * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ *
+ * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
+ * @param {string|string[]} [domain = muchong.com] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/537] - 脚本主页
+ * @param {string} [loginURL = http://muchong.com/bbs/logging.php?action=login] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/小木虫签到] - 脚本更新链接
+ */
+
+let run = async function (param) {
+  if (!(await check(param))) throw '需要登录';
+  let resp = await axios.get('http://muchong.com/bbs/memcp.php?action=getcredit');
+  if (/您已经领取今天的红包啦/.test(resp.data)) return '重复签到';
+  let formhash = /name="formhash" value="([^"]+)/.exec(resp.data);
+  if (formhash == null) throw 'Not found formhash';
+  let resp1 = await axios.post(
+    'http://muchong.com/bbs/memcp.php?action=getcredit',
+    `getmode=1&amp;creditsubmit=1&amp;formhash=${formhash[0]}`
+  );
+  let coin = />(\d+?)&lt;\/span>[\s\n\r]+?个金币大礼包！/.exec(resp1.data);
+  if (coin) return `获得 ${coin[1]} 个金币`;
+  else throw 'Not found coin';
+};
+
+let check = async function (param) {
+  let resp = await axios.get('http://muchong.com/bbs/memcp.php?action=getcredit');
+  return !/您还没有登录/.test(resp.data);
+};
+
+module.exports = { run, check };
+</code></pre>
+        </article>
+    </section>
 
 
 
