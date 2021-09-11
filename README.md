@@ -53,7 +53,7 @@
 |    [科研通签到脚本 V1.0.0]    |       帐号密码自动登陆        |     无      |
 |     [星辰签到脚本 V1.0.2]     |       帐号密码自动登陆        |     无      |
 |     [几鸡签到脚本 V1.0.0]     |       帐号密码自动登陆        |     无      |
-|    [小木虫签到脚本 V1.0.1]    |                               |     无      |
+|    [小木虫签到脚本 V1.1.0]    |       帐号密码自动登陆        |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
@@ -80,7 +80,7 @@
 [科研通签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/414
 [星辰签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/461
 [几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
-[小木虫签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/537
+[小木虫签到脚本 v1.1.0]: https://soulsign.inu1255.cn/scripts/537
 
 ## 压缩包(build[version].zip)
 
@@ -100,6 +100,7 @@
 - 感谢 [marvolo666](https://github.com/marvolo666) 创作的 [通用 demo 模板脚本](https://github.com/inu1255/soulsign-chrome/blob/master/public/demos/ShadowSocksR.js) ！
 - 感谢 [hithy123](https://github.com/hithy123) 创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225) !
 - 感谢 [NobyDa](https://github.com/NobyDa) 创作的 [爱奇艺签到脚本](https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js) !
+- 感谢 [andyyelu](https://github.com/andyyelu/) 创作的 [小木虫签到脚本](https://github.com/andyyelu/muchong_checkin) !
 
 ## License
 
