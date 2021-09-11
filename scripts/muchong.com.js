@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              小木虫签到
 // @namespace         https://soulsign.inu1255.cn/scripts/537
-// @version           1.1.0
+// @version           1.1.1
 // @author            yi-Xu-0100
 // @loginURL          http://muchong.com/bbs/logging.php?action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/小木虫签到
@@ -14,7 +14,7 @@
 /**
  * @file 小木虫签到脚本
  * @author yi-Xu-0100
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 /**
@@ -61,7 +61,7 @@ let check = async function (param) {
     if (loginTime == null) throw 'Not found formhash';
     let resp2 = await axios.post(
       `http://muchong.com/bbs/logging.php?action=login&t=${loginTime[1]}`,
-      `formhash=${formhash[1]}&username=${param.name}&password=${param.pwd}` +
+      `formhash=${formhash[1]}&username=${param.name}&password=${encodeURIComponent(param.pwd)}` +
         '&cookietime=31536000&rule=rule&refer=&loginsubmit=%BB%E1%D4%B1%B5%C7%C2%BC'
     );
     let checkStatus1 = /您所在的IP段有用户试图多次尝试获取帐号情况/.exec(resp2.data);
