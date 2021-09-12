@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              小木虫签到
 // @namespace         https://soulsign.inu1255.cn/scripts/537
-// @version           1.1.1
+// @version           1.1.2
 // @author            yi-Xu-0100
 // @loginURL          http://muchong.com/bbs/logging.php?action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/小木虫签到
@@ -14,7 +14,7 @@
 /**
  * @file 小木虫签到脚本
  * @author yi-Xu-0100
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 /**
@@ -53,8 +53,7 @@ let check = async function (param) {
   if (/您还没有登录/.test(resp.data)) {
     if (!param.name || !param.pwd) return false;
     let resp1 = await axios.get('http://muchong.com/bbs/logging.php?action=login');
-    let checkStatus = /您所在的IP段有用户试图多次尝试获取帐号情况/.exec(resp1.data);
-    if (checkStatus != null) throw 'IP 段被封，请自行尝试邮箱登录';
+    if (/您所在的IP段有用户试图多次尝试/.test(resp1.data)) throw 'IP 段被封，请自行尝试邮箱登录';
     let formhash = /name="formhash" value="([^"]+)/.exec(resp1.data);
     if (formhash == null) throw 'Not found formhash';
     let loginTime = /t=(\d+)/.exec(resp1.data);
@@ -64,8 +63,7 @@ let check = async function (param) {
       `formhash=${formhash[1]}&username=${param.name}&password=${encodeURIComponent(param.pwd)}` +
         '&cookietime=31536000&rule=rule&refer=&loginsubmit=%BB%E1%D4%B1%B5%C7%C2%BC'
     );
-    let checkStatus1 = /您所在的IP段有用户试图多次尝试获取帐号情况/.exec(resp2.data);
-    if (checkStatus1 != null) throw 'IP 段被封，请自行尝试邮箱登录';
+    if (/您所在的IP段有用户试图多次尝试/.test(resp2.data)) throw 'IP 段被封，请自行尝试邮箱登录';
     let question = /问题：(\d+)(\D+)(\d+)等于多少/.exec(resp2.data);
     if (question == null) throw 'Not found question';
     let answer = question[1] / question[3];
@@ -79,10 +77,8 @@ let check = async function (param) {
       `formhash=${formhash[1]}&post_sec_code=${answer}&post_sec_hash=${formhash1[1]}` +
         `&username=${param.name}&loginsubmit=%CC%E1%BD%BB`
     );
-    let checkStatus2 = /您所在的IP段有用户试图多次尝试获取帐号情况/.exec(resp3.data);
-    if (checkStatus2 != null) throw 'IP 段被封，请自行尝试邮箱登录';
-    let checkStatus3 = /输入的帐号密码错误/.exec(resp4.data);
-    if (checkStatus3 != null) throw '输入的帐号密码错误';
+    if (/您所在的IP段有用户试图多次尝试/.test(resp3.data)) throw 'IP 段被封，请自行尝试邮箱登录';
+    if (/输入的帐号密码错误/.test(resp3.data)) throw '输入的帐号密码错误';
     return true;
   } else return true;
 };
