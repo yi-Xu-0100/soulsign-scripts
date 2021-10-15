@@ -14,7 +14,7 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'dependencies')
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
