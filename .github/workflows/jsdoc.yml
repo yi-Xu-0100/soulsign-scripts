@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.3.5
+        uses: actions/checkout@v2.4.0
 
       - name: Build jsdoc
         uses: andstor/jsdoc-action@v1.2.0
