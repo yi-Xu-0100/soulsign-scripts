@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              力扣中国
 // @namespace         https://soulsign.inu1255.cn/scripts/191
-// @version           1.0.2
+// @version           1.0.3
 // @author            yi-Xu-0100
 // @loginURL          https://leetcode-cn.com/
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/力扣中国
@@ -12,7 +12,7 @@
 /**
  * @file 力扣中国签到脚本
  * @author yi-Xu-0100
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 /**
@@ -27,12 +27,12 @@
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/力扣中国] - 脚本更新链接
  */
 
-exports.run = async function (param) {
-  var defaultHeaders = {
+let run = async function (param) {
+  let defaultHeaders = {
     Origin: 'https://leetcode-cn.com/',
     Referer: 'https://leetcode-cn.com/points/'
   };
-  var { data } = await axios.post(
+  let resp1 = await axios.post(
     'https://leetcode-cn.com/graphql/',
     {
       operationName: 'globalData',
@@ -44,13 +44,13 @@ exports.run = async function (param) {
       headers: defaultHeaders
     }
   );
-  if (!data.data.userStatus.isSignedIn) throw '没有登录';
-  if (data.data.userStatus.checkedInToday) return '重复签到';
-  var { data } = await axios.get('https://leetcode-cn.com/points/api/total/', {
+  if (!resp1.data.data.userStatus.isSignedIn) throw '没有登录';
+  if (resp1.data.data.userStatus.checkedInToday) return '重复签到';
+  let resp2 = await axios.get('https://leetcode-cn.com/points/api/total/', {
     headers: defaultHeaders
   });
-  var originPoints = data.points;
-  var { data } = await axios.post(
+  let originPoints = resp2.data.points;
+  await axios.post(
     'https://leetcode-cn.com/graphql/',
     {
       operationName: 'checkin',
@@ -62,15 +62,18 @@ exports.run = async function (param) {
       headers: defaultHeaders
     }
   );
-  var { data } = await axios.get('https://leetcode-cn.com/points/api/total/', {
+  let resp3 = await axios.get('https://leetcode-cn.com/points/api/total/', {
     headers: defaultHeaders
   });
-  var getPoints = data.points - originPoints;
-  if (getPoints) return '今日获得 ' + getPoints + ' 积分';
-  throw data;
+  let getPoints = resp3.data.points - originPoints;
+  if (getPoints > 0) return '今日获得 ' + getPoints + ' 积分';
+  else if (getPoints === 0) return '重复签到';
+  throw resp3.data;
 };
 
-exports.check = async function (param) {
-  var { data } = await axios.get('https://leetcode-cn.com/explore/');
-  return /isSignedIn: true/.test(data);
+let check = async function (param) {
+  let resp = await axios.get('https://leetcode-cn.com/explore/');
+  return /isSignedIn: true/.test(resp.data);
 };
+
+module.exports = { run, check };
