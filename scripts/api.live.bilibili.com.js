@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name              bilibili直播
 // @namespace         https://soulsign.inu1255.cn/scripts/590
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://passport.bilibili.com/login
-// @updateURL         https://soulsign.inu1255.cn/script/inu1255/bilibili直播
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/bilibili直播
 // @expire            900000
 // @domain            api.live.bilibili.com
 // ==/UserScript==
@@ -13,7 +13,7 @@
  * @file bilibili直播签到脚本
  * @author yi-Xu-0100
  * @author inu1255
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -27,7 +27,7 @@
  * @param {string} [expire = 900000] - 在线检查频率
  * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/10] - 脚本主页
  * @param {string} [loginURL = https://passport.bilibili.com/login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/inu1255/bilibili直播] - 脚本更新链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/bilibili直播] - 脚本更新链接
  */
 
 let run = async function (param) {

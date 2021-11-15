@@ -54,7 +54,7 @@
 |     [星辰签到脚本 V1.0.2]      |       帐号密码自动登陆        |     无      |
 |     [几鸡签到脚本 V1.0.0]      |       帐号密码自动登陆        |     无      |
 |    [小木虫签到脚本 V1.1.2]     |       帐号密码自动登陆        |     无      |
-| [bilibili 直播签到脚本 V1.0.1] |              无               |     无      |
+| [bilibili 直播签到脚本 V1.0.2] |              无               |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
@@ -82,7 +82,7 @@
 [星辰签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/461
 [几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
 [小木虫签到脚本 v1.1.2]: https://soulsign.inu1255.cn/scripts/537
-[bilibili 直播签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/590
+[bilibili 直播签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/590
 
 ## 压缩包(build[version].zip)
 
