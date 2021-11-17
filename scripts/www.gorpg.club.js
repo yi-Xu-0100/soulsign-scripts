@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              GORPG
 // @namespace         https://soulsign.inu1255.cn/scripts/192
-// @version           1.0.0
+// @version           1.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://www.gorpg.club/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/GORPG
@@ -12,7 +12,7 @@
 /**
  * @file GORPG签到脚本
  * @author yi-Xu-0100
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -27,38 +27,29 @@
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/GORPG] - 脚本更新链接
  */
 
-exports.run = async function (param) {
-  // 签到的页面
-  let resp = await axios.get('https://www.gorpg.club/plugin.php?id=k_misign:sign');
-  let signhtml = resp.data;
-  if (signhtml.includes('您的签到排名')) {
-    return '已经签到过';
-  }
-  let result = signhtml.match(/<a id="JD_sign" href="(.*?)"/);
-  if (result == null) {
-    throw '未登录';
-  }
-  let signurl = result[1];
-  var { data } = await axios.get('https://www.gorpg.club/' + signurl);
-  if (/今日已签/.test(data)) return '任务已完成';
-  if (/需要先登录/.test(data)) throw '未登录';
-  let resp1 = await axios.get('https://www.gorpg.club/plugin.php?id=k_misign:sign');
-  let signhtml1 = resp1.data;
-  if (signhtml1.includes('您的签到排名')) {
-    let result1 = signhtml1.match(
-      /<input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/
-    );
-    return '积分奖励: ' + result1[1] + ' 秘石';
-  } else throw '未成功签到';
+let run = async function (param) {
+  if (!(await check(param))) throw '需要登录';
+  let resp = await axios.get(
+    'https://www.gorpg.club/plugin.php?id=wq_sign&mod=mood&infloat=yes&handlekey=pc_click_wqsign&inajax=1&ajaxtarget=fwin_content_pc_click_wqsign'
+  );
+  if (resp.data.includes('已签到')) return '重复签到';
+  if (resp.data.includes('您需要先登录才能继续本操作')) throw '需要登录';
+  let result = resp.data.match(/<input type="hidden" value="(.*?)" name="formhash">/);
+  if (result == null) throw resp.data;
+  let resp1 = await axios.post(
+    'https://www.gorpg.club/plugin.php?id=wq_sign&mod=mood&infloat=yes&confirmsubmit=yes&inajax=1',
+    `confirmsubmit=yes&formhash=${result[1]}&handlekey=pc_click_wqsign&imageurl=source%2Fplugin%2Fwq_sign%2Fstatic%2Fimages%2Fwq_sign9.png&message=%C0%CB%C0%EF%B8%F6%C0%CB%C0%CB%C0%EF%B8%F6%C0%CB`
+  );
+  if (/今日已签/.test(resp1.data)) return '任务已完成';
+  if (/需要先登录/.test(resp1.data)) throw '需要登录';
+  let result1 = resp1.match(/id=wq_sign.*?(签到成功奖励.*?)'/);
+  if (result1 == null) throw resp1.data;
+  else return result1[1];
 };
 
-exports.check = async function (param) {
-  var { status, data } = await axios.get(
-    'https://www.gorpg.club/home.php?mod=spacecp&ac=usergroup',
-    {
-      maxRedirects: 0
-    }
-  );
-  if (/需要先登录/.test(data)) return false;
-  return true;
+let check = async function (param) {
+  let resp = await axios.get('https://www.gorpg.club/home.php?mod=spacecp&ac=usergroup');
+  return !/需要先登录/.test(resp.data);
 };
+
+module.exports = { run, check };
