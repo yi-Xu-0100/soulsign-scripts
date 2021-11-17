@@ -34,7 +34,7 @@
 |    [好书友签到脚本 V1.1.1]     | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |     [聚创签到脚本 V1.0.8]      |       帐号密码自动登陆        |     无      |
 |   [力扣中国签到脚本 V1.0.3]    |              无               |     无      |
-|    [GORPG 签到脚本 V1.0.0]     |              无               |     无      |
+|    [GORPG 签到脚本 V1.0.1]     |              无               |     无      |
 | [sketchupbar 签到脚本 V1.0.6]  |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2]   |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.6]   |              无               |     无      |
@@ -62,7 +62,7 @@
 [好书友签到脚本 v1.1.1]: https://soulsign.inu1255.cn/scripts/185
 [聚创签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/186
 [力扣中国签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/191
-[gorpg 签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/192
+[gorpg 签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/192
 [sketchupbar 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/198
 [什么值得买签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/206
 [网易云音乐签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/233
