@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              GORPG
 // @namespace         https://soulsign.inu1255.cn/scripts/192
-// @version           1.0.1
+// @version           1.0.2
 // @author            yi-Xu-0100
 // @loginURL          https://www.gorpg.club/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/GORPG
@@ -12,7 +12,7 @@
 /**
  * @file GORPG签到脚本
  * @author yi-Xu-0100
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /**
@@ -42,7 +42,7 @@ let run = async function (param) {
   );
   if (/今日已签/.test(resp1.data)) return '任务已完成';
   if (/需要先登录/.test(resp1.data)) throw '需要登录';
-  let result1 = resp1.match(/id=wq_sign.*?(签到成功奖励.*?)'/);
+  let result1 = resp1.data.match(/id=wq_sign.*?(签到成功奖励.*?)'/);
   if (result1 == null) throw resp1.data;
   else return result1[1];
 };
