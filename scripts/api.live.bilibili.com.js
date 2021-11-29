@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              bilibili直播
 // @namespace         https://soulsign.inu1255.cn/scripts/590
-// @version           1.0.2
+// @version           1.0.3
 // @author            yi-Xu-0100
 // @loginURL          https://passport.bilibili.com/login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/bilibili直播
@@ -13,7 +13,7 @@
  * @file bilibili直播签到脚本
  * @author yi-Xu-0100
  * @author inu1255
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 /**
@@ -25,7 +25,7 @@
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
  * @param {string|string[]} [domain = api.live.bilibili.com] - 请求的域名
  * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/10] - 脚本主页
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/590] - 脚本主页
  * @param {string} [loginURL = https://passport.bilibili.com/login] - 登录链接
  * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/bilibili直播] - 脚本更新链接
  */
