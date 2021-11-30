@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>www.sketchupbar.com.js - Documentation</title>
+    <title>cloud189签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,84 +29,449 @@
 
 <div id="main">
     
-    <h1 class="page-title">www.sketchupbar.com.js</h1>
+    <h1 class="page-title">cloud189签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              sketchupbar
-// @namespace         https://soulsign.inu1255.cn/scripts/198
-// @version           1.0.6
-// @author            yi-Xu-0100
-// @loginURL          https://www.sketchupbar.com/member.php?mod=logging&amp;action=login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/sketchupbar
-// @expire            900000
-// @domain            www.sketchupbar.com
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file sketchupbar签到脚本
- * @author yi-Xu-0100
- * @version 1.0.6
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>本脚本借鉴 <a href="https://github.com/MayoBlueSky/My-Actions/blob/master/function/cloud189/checkin.py">MayoBlueSky 的 cloud189 签到脚本</a>，需要请求 <a href="https://github.com/travist/jsencrypt">jsencrypt</a> 完成账号密码登录。</p>
+<p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
+<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
+        
 
-/**
- * @module sketchupbar签到脚本
- * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- *
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = www.sketchupbar.com] - 请求的域名
- * @param {string} [expire = 900000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/198] - 脚本主页
- * @param {string} [loginURL = https://www.sketchupbar.com/member.php?mod=logging&amp;action=login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/sketchupbar] - 脚本更新链接
- */
+        
+            
+<div class="section-method">
 
-let run = async function (param) {
-  if (!(await check(param))) throw '需要登录';
-  var resp = await axios.get('https://www.sketchupbar.com/sign.php?mod=sign');
-  var origin_hbs = resp.data.match(/&lt;span>(.*?)&lt;\/span>\s+&lt;span id="hbs_info"/);
-  var origin_bb = resp.data.match(/&lt;span>(.*?)&lt;\/span>\s+&lt;span id="bb_info"/);
-  if (/您的签到排名/.test(resp.data)) return '重复签到';
-  if (/常规维护中/.test(resp.data)) throw '常规维护中';
-  var result = resp.data.match(/&lt;a id="JD_sign" class="BtBox" href="(.*?)"/);
-  if (result == null) throw '需要登录';
-  var signurl = result[1];
-  await axios.get('https://www.sketchupbar.com/' + signurl);
-  var resp1 = await axios.get('https://www.sketchupbar.com/sign.php?mod=sign');
-  var rewards = '今日获得：';
-  if (/您的签到排名/.test(resp1.data)) {
-    let today_hbs = resp1.data.match(/&lt;span>(.*?)&lt;\/span>\s+&lt;span id="hbs_info"/);
-    let today_bb = resp1.data.match(/&lt;span>(.*?)&lt;\/span>\s+&lt;span id="bb_info"/);
-    let hbs = today_hbs[1] - origin_hbs[1];
-    if (hbs) rewards = rewards + hbs + ' 红宝石，';
-    let bb = today_bb[1] - origin_bb[1];
-    if (bb) rewards = rewards + bb + ' 吧币，';
-    let resp = await axios.post('https://www.sketchupbar.com/plugin.php?id=k_misign:get_zhuanpan');
-    while (/200/.test(resp.data.code)) {
-      rewards = rewards + resp.data.name + '，';
-      resp = await axios.post('https://www.sketchupbar.com/plugin.php?id=k_misign:get_zhuanpan');
-    }
-    rewards = rewards.substr(0, rewards.length - 1);
-    return rewards;
-  } else throw '未成功签到';
-};
 
-let check = async function (param) {
-  var resp = await axios.get('https://www.sketchupbar.com/home.php?mod=spacecp&amp;ac=usergroup');
-  return !/需要先登录/.test(resp.data);
-};
 
-module.exports = { run, check };
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cloud.189.cn.js.html">cloud.189.cn.js</a>, <a href="cloud.189.cn.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    [cloud.189.cn,open.e.189.cn,m.cloud.189.cn]
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/604
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://cloud.189.cn/web/login.html
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/cloud189签到脚本
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>账户</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pwd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>密码</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
