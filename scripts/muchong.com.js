@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              小木虫签到
 // @namespace         https://soulsign.inu1255.cn/scripts/537
-// @version           1.1.2
+// @version           1.1.3
 // @author            yi-Xu-0100
 // @loginURL          http://muchong.com/bbs/logging.php?action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/小木虫签到
@@ -14,7 +14,7 @@
 /**
  * @file 小木虫签到脚本
  * @author yi-Xu-0100
- * @version 1.1.2
+ * @version 1.1.3
  */
 
 /**
@@ -43,7 +43,7 @@ let run = async function (param) {
     'http://muchong.com/bbs/memcp.php?action=getcredit',
     `getmode=1&creditsubmit=1&formhash=${formhash[1]}`
   );
-  let coin = />(\d+?)<\/span>[\s\n\r]+?个金币大礼包！/.exec(resp1.data);
+  let coin = />([0-9.]+?)<\/span>[\s\n\r]+?个金币大礼包！/.exec(resp1.data);
   if (coin) return `获得 ${coin[1]} 个金币`;
   else throw 'Not found coin';
 };

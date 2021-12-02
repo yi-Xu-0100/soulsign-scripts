@@ -62,7 +62,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 |    [科研通签到脚本 V1.0.0]     |       帐号密码自动登陆        |     无      |
 |     [星辰签到脚本 V1.0.2]      |       帐号密码自动登陆        |     无      |
 |     [几鸡签到脚本 V1.0.0]      |       帐号密码自动登陆        |     无      |
-|    [小木虫签到脚本 V1.1.2]     |       帐号密码自动登陆        |     无      |
+|    [小木虫签到脚本 V1.1.3]     |       帐号密码自动登陆        |     无      |
 | [bilibili 直播签到脚本 V1.0.3] |              无               |     无      |
 |   [cloud189 签到脚本 V1.0.3]   |       帐号密码自动登陆        |     无      |
 
@@ -91,7 +91,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 [科研通签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/414
 [星辰签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/461
 [几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
-[小木虫签到脚本 v1.1.2]: https://soulsign.inu1255.cn/scripts/537
+[小木虫签到脚本 v1.1.3]: https://soulsign.inu1255.cn/scripts/537
 [bilibili 直播签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/590
 [cloud189 签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/604
 
