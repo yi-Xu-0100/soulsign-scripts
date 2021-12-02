@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              cloud189签到
 // @namespace         https://soulsign.inu1255.cn/scripts/604
-// @version           1.0.3
+// @version           1.0.5
 // @author            yi-Xu-0100
 // @loginURL          https://cloud.189.cn/web/login.html
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/cloud189签到
@@ -17,18 +17,19 @@
 /**
  * @file cloud189签到脚本
  * @author yi-Xu-0100
- * @author MayoBlueSky
- * @version 1.0.3
+ * @author t00t00-crypto
+ * @version 1.0.5
  */
 
 /**
  * @module cloud189签到脚本
- * @description 本脚本借鉴 [MayoBlueSky 的 cloud189 签到脚本](https://github.com/MayoBlueSky/My-Actions/blob/master/function/cloud189/checkin.py)，需要请求 [jsencrypt](https://github.com/travist/jsencrypt) 完成账号密码登录。
+ * @description 本脚本借鉴 [t00t00-crypto 的 cloud189 签到脚本](https://github.com/t00t00-crypto/cloud189-action/blob/master/checkin.py)，需要请求 [jsencrypt](https://github.com/travist/jsencrypt) 完成账号密码登录。
  *
  * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
  * @param {string|string[]} [domain = [cloud.189.cn,open.e.189.cn,m.cloud.189.cn]] - 请求的域名
+ * @param {string|string[]} [grant = require] - 脚本需要的权限
  * @param {string} [expire = 900000] - 在线检查频率
  * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/604] - 脚本主页
  * @param {string} [loginURL = https://cloud.189.cn/web/login.html] - 登录链接
@@ -60,7 +61,7 @@ let run = async function (param) {
   if (/User_Not_Chance/.test(resp1.data.errorCode)) {
     log += '签到抽奖已完成，';
   } else if (resp1.data.prizeName) {
-    log += `签到抽奖获得 ${resp1.data.match(/天翼云盘(.*?)空间/)[1]} 空间，`;
+    log += `签到抽奖获得 ${resp1.data.prizeName.match(/天翼云盘(.*?)空间/)[1]} 空间，`;
   } else throw resp1.data;
   let resp2 = await axios.get(
     'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN',
@@ -71,7 +72,7 @@ let run = async function (param) {
   if (/User_Not_Chance/.test(resp2.data.errorCode)) {
     log += '相册抽奖已完成';
   } else if (resp2.data.prizeName) {
-    log += `相册抽奖获得 ${resp2.data.match(/天翼云盘(.*?)空间/)[1]} 空间`;
+    log += `相册抽奖获得 ${resp2.data.prizeName.match(/天翼云盘(.*?)空间/)[1]} 空间`;
   } else throw resp2.data;
   return log;
 };

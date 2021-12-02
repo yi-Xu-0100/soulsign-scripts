@@ -64,7 +64,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 |     [几鸡签到脚本 V1.0.0]      |       帐号密码自动登陆        |     无      |
 |    [小木虫签到脚本 V1.1.3]     |       帐号密码自动登陆        |     无      |
 | [bilibili 直播签到脚本 V1.0.3] |              无               |     无      |
-|   [cloud189 签到脚本 V1.0.3]   |       帐号密码自动登陆        |     无      |
+|   [cloud189 签到脚本 V1.0.5]   |       帐号密码自动登陆        |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
@@ -93,7 +93,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 [几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
 [小木虫签到脚本 v1.1.3]: https://soulsign.inu1255.cn/scripts/537
 [bilibili 直播签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/590
-[cloud189 签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/604
+[cloud189 签到脚本 v1.0.5]: https://soulsign.inu1255.cn/scripts/604
 
 ## 压缩包(build[version].zip)
 
@@ -114,6 +114,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 - 感谢 [hithy123](https://github.com/hithy123) 创作的 [人大经济论坛脚本](https://soulsign.inu1255.cn/scripts/225) !
 - 感谢 [NobyDa](https://github.com/NobyDa) 创作的 [爱奇艺签到脚本](https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js) !
 - 感谢 [andyyelu](https://github.com/andyyelu/) 创作的 [小木虫签到脚本](https://github.com/andyyelu/muchong_checkin) !
+- 感谢 [t00t00-crypto](https://github.com/t00t00-crypto) 创作的 [cloud189 签到脚本](https://github.com/t00t00-crypto/cloud189-action/blob/master/checkin.py)
 
 ## License
 
