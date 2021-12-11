@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>www.abooky.com.js - Documentation</title>
+    <title>凌云风账号签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,120 +29,372 @@
 
 <div id="main">
     
-    <h1 class="page-title">www.abooky.com.js</h1>
+    <h1 class="page-title">凌云风账号签到脚本</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              阅次元签到
-// @namespace         https://soulsign.inu1255.cn/scripts/174
-// @version           1.0.5
-// @author            yi-Xu-0100
-// @loginURL          https://www.abooky.com/member.php?mod=logging&amp;action=login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到
-// @expire            1200000
-// @domain            www.abooky.com
-// @param            name 账户
-// @param            pwd 加密密码
-// ==/UserScript==
+        
+            
+        
+    
+</header>
 
-/**
- * @file 阅次元签到脚本
- * @author yi-Xu-0100
- * @author Vicrack
- * @version 1.0.5
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
+<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
+        
 
-/**
- * @module 阅次元签到脚本
- * @description 本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
- *
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
- *
- * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = www.abooky.com] - 请求的域名
- * @param {string} [expire = 1200000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/174] - 脚本主页
- * @param {string} [loginURL = https://www.abooky.com/member.php?mod=logging&amp;action=login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到] - 脚本更新链接
- * @param {string} name - 账户
- * @param {string} pwd - 加密密码
- */
+        
+            
+<div class="section-method">
 
-exports.run = async function (param) {
-  let resp = await axios.get('https://www.abooky.com/plugin.php?id=k_misign:sign');
-  let signhtml = resp.data;
-  if (signhtml.includes('您的签到排名')) return '重复签到';
-  let result = signhtml.match(/&lt;a id="JD_sign" href="(.*?)"/);
-  if (result[1] == 'member.php?mod=logging&amp;action=login') throw '未登录';
-  var { data } = await axios.get('https://www.abooky.com/' + result[1]);
-  if (/需要先登录/.test(data)) throw '未登录';
-  let resp1 = await axios.get('https://www.abooky.com/plugin.php?id=k_misign:sign');
-  let signhtml1 = resp1.data;
-  if (signhtml1.includes('您的签到排名')) {
-    let result1 = signhtml1.match(
-      /&lt;input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/
-    );
-    return '积分奖励: ' + result1[1] + ' 银币';
-  } else throw '未成功签到';
-};
 
-exports.check = async function (param) {
-  var resp = await axios.get('https://www.abooky.com/home.php?mod=spacecp&amp;ac=usergroup', {
-    maxRedirects: 0
-  });
-  if (/我的用户组/.test(resp.data)) return true;
-  else {
-    var resp = await axios.get('https://www.abooky.com/member.php?mod=logging&amp;action=login', {
-      maxRedirects: 0
-    });
-    let loginhash = resp.data.match(/&lt;div id="layer_login_(.*?)"/);
-    let formhash = resp.data.match(/&lt;input type="hidden" name="formhash" value="(.*?)"/);
-    var resp = await axios.post(
-      'https://www.abooky.com/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;inajax=1&amp;loginhash=' +
-        loginhash[1],
-      {
-        formhash: formhash[1],
-        referer: 'https://www.abooky.com/./',
-        username: param.name,
-        cookietime: '2592000',
-        password: param.pwd,
-        questionid: 0,
-        answer: ''
-      },
-      {
-        transformRequest: [
-          function (data) {
-            let ret = '';
-            for (let it in data) {
-              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&amp;';
-            }
-            return ret.substr(0, ret.length - 1);
-          }
-        ],
-        headers: {
-          Origin: 'https://www.abooky.com/',
-          'Upgrade-Insecure-Requests': '1',
-          Referer: 'https://www.abooky.com/member.php?mod=logging&amp;action=login'
-        }
-      }
-    );
-    if (/errorhandle/.test(resp.data)) throw resp.data.match(/errorhandle_\('(.*?)',/)[1];
-    var resp = await axios.get('https://www.abooky.com/home.php?mod=spacecp&amp;ac=usergroup', {
-      maxRedirects: 0
-    });
-    return /我的用户组/.test(resp.data) ? true : false;
-  }
-};
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="account.lingfengyun.com.js.html">account.lingfengyun.com.js</a>, <a href="account.lingfengyun.com.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>Array.&lt;string></code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    account.lingfengyun.com
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>请求的域名</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>expire</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    900000
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>在线检查频率</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/scripts/607
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本主页</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loginURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://account.lingfengyun.com/login.aspx
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>登录链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>updateURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/凌云风账号
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -152,7 +404,7 @@ exports.check = async function (param) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Dec 11 2021 13:53:44 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Dec 11 2021 13:53:45 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

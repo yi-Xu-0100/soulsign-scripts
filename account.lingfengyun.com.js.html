@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>www.abooky.com.js - Documentation</title>
+    <title>account.lingfengyun.com.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">www.abooky.com.js</h1>
+    <h1 class="page-title">account.lingfengyun.com.js</h1>
     
 
     
@@ -40,106 +40,49 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ==UserScript==
-// @name              阅次元签到
-// @namespace         https://soulsign.inu1255.cn/scripts/174
-// @version           1.0.5
+// @name              凌云风账号
+// @namespace         https://soulsign.inu1255.cn/scripts/607
+// @version           1.0.0
 // @author            yi-Xu-0100
-// @loginURL          https://www.abooky.com/member.php?mod=logging&amp;action=login
-// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到
-// @expire            1200000
-// @domain            www.abooky.com
-// @param            name 账户
-// @param            pwd 加密密码
+// @loginURL          https://account.lingfengyun.com/login.aspx
+// @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/凌云风账号
+// @expire            900000
+// @domain            account.lingfengyun.com
 // ==/UserScript==
 
 /**
- * @file 阅次元签到脚本
+ * @file 凌云风账号签到脚本
  * @author yi-Xu-0100
- * @author Vicrack
- * @version 1.0.5
+ * @version 1.0.0
  */
 
 /**
- * @module 阅次元签到脚本
- * @description 本脚本借鉴 [Vicrack 的鱼C论坛脚本](https://soulsign.inu1255.cn/scripts/167)，提供设置用户名和密码方式自动登陆，其中密码为真实密码的 MD5 加密后的密钥。
- *
- * 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
+ * @module 凌云风账号签到脚本
+ * @description 脚本内容讨论请转至：[仓库 issue](https://github.com/yi-Xu-0100/soulsign-scripts/issues)
  *
  * 签到插件讨论请转至：[官方 issue](https://github.com/inu1255/soulsign-chrome/issues)
- * @param {string|string[]} [domain = www.abooky.com] - 请求的域名
- * @param {string} [expire = 1200000] - 在线检查频率
- * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/174] - 脚本主页
- * @param {string} [loginURL = https://www.abooky.com/member.php?mod=logging&amp;action=login] - 登录链接
- * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到] - 脚本更新链接
- * @param {string} name - 账户
- * @param {string} pwd - 加密密码
+ * @param {string|string[]} [domain = account.lingfengyun.com] - 请求的域名
+ * @param {string} [expire = 900000] - 在线检查频率
+ * @param {string} [namespace = https://soulsign.inu1255.cn/scripts/607] - 脚本主页
+ * @param {string} [loginURL = https://account.lingfengyun.com/login.aspx] - 登录链接
+ * @param {string} [updateURL = https://soulsign.inu1255.cn/script/yi-Xu-0100/凌云风账号] - 脚本更新链接
  */
 
-exports.run = async function (param) {
-  let resp = await axios.get('https://www.abooky.com/plugin.php?id=k_misign:sign');
-  let signhtml = resp.data;
-  if (signhtml.includes('您的签到排名')) return '重复签到';
-  let result = signhtml.match(/&lt;a id="JD_sign" href="(.*?)"/);
-  if (result[1] == 'member.php?mod=logging&amp;action=login') throw '未登录';
-  var { data } = await axios.get('https://www.abooky.com/' + result[1]);
-  if (/需要先登录/.test(data)) throw '未登录';
-  let resp1 = await axios.get('https://www.abooky.com/plugin.php?id=k_misign:sign');
-  let signhtml1 = resp1.data;
-  if (signhtml1.includes('您的签到排名')) {
-    let result1 = signhtml1.match(
-      /&lt;input type="hidden" class="hidnum" id="lxreward" value="(.*?)"/
-    );
-    return '积分奖励: ' + result1[1] + ' 银币';
-  } else throw '未成功签到';
+let run = async function (param) {
+  if (!(await check(param))) throw '需要登录';
+  let resp = await axios.post('https://account.lingfengyun.com/user_ajax.aspx?id=sign');
+  if (resp.data === 'Ucode_Err') throw '需要登录';
+  if (resp.data === 'Login_true') return '签到成功';
+  if (resp.data === 'Already_exist') return '重复签到';
+  throw resp.data;
 };
 
-exports.check = async function (param) {
-  var resp = await axios.get('https://www.abooky.com/home.php?mod=spacecp&amp;ac=usergroup', {
-    maxRedirects: 0
-  });
-  if (/我的用户组/.test(resp.data)) return true;
-  else {
-    var resp = await axios.get('https://www.abooky.com/member.php?mod=logging&amp;action=login', {
-      maxRedirects: 0
-    });
-    let loginhash = resp.data.match(/&lt;div id="layer_login_(.*?)"/);
-    let formhash = resp.data.match(/&lt;input type="hidden" name="formhash" value="(.*?)"/);
-    var resp = await axios.post(
-      'https://www.abooky.com/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;inajax=1&amp;loginhash=' +
-        loginhash[1],
-      {
-        formhash: formhash[1],
-        referer: 'https://www.abooky.com/./',
-        username: param.name,
-        cookietime: '2592000',
-        password: param.pwd,
-        questionid: 0,
-        answer: ''
-      },
-      {
-        transformRequest: [
-          function (data) {
-            let ret = '';
-            for (let it in data) {
-              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&amp;';
-            }
-            return ret.substr(0, ret.length - 1);
-          }
-        ],
-        headers: {
-          Origin: 'https://www.abooky.com/',
-          'Upgrade-Insecure-Requests': '1',
-          Referer: 'https://www.abooky.com/member.php?mod=logging&amp;action=login'
-        }
-      }
-    );
-    if (/errorhandle/.test(resp.data)) throw resp.data.match(/errorhandle_\('(.*?)',/)[1];
-    var resp = await axios.get('https://www.abooky.com/home.php?mod=spacecp&amp;ac=usergroup', {
-      maxRedirects: 0
-    });
-    return /我的用户组/.test(resp.data) ? true : false;
-  }
+let check = async function (param) {
+  let resp = await axios.get('https://account.lingfengyun.com/index.aspx');
+  return !/找回密码/.test(resp.data);
 };
+
+module.exports = { run, check };
 </code></pre>
         </article>
     </section>
