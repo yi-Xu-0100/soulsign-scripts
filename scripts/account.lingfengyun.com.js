@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              凌云风账号
 // @namespace         https://soulsign.inu1255.cn/scripts/607
-// @version           1.0.0
+// @version           1.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://account.lingfengyun.com/login.aspx
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/凌云风账号
@@ -12,7 +12,7 @@
 /**
  * @file 凌云风账号签到脚本
  * @author yi-Xu-0100
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -31,7 +31,7 @@ let run = async function (param) {
   if (!(await check(param))) throw '需要登录';
   let resp = await axios.post('https://account.lingfengyun.com/user_ajax.aspx?id=sign');
   if (resp.data === 'Ucode_Err') throw '需要登录';
-  if (resp.data === 'Login_true') return '签到成功';
+  if (resp.data === 'Success') return '签到成功';
   if (resp.data === 'Already_exist') return '重复签到';
   throw resp.data;
 };
