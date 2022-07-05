@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              cloud189签到
 // @namespace         https://soulsign.inu1255.cn/scripts/604
-// @version           1.0.5
+// @version           1.0.6
 // @author            yi-Xu-0100
 // @loginURL          https://cloud.189.cn/web/login.html
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/cloud189签到
@@ -18,7 +18,7 @@
  * @file cloud189签到脚本
  * @author yi-Xu-0100
  * @author t00t00-crypto
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 /**
@@ -78,88 +78,93 @@ let run = async function (param) {
 };
 
 let check = async function (param) {
-  let resp = await axios.get('https://m.cloud.189.cn/userSign.action', {
-    headers: headers
-  });
-  if (resp.data.netdiskBonus) return true;
-  else if (param.name && param.pwd) {
-    let resp1 = await axios.get(
-      'https://cloud.189.cn/api/portal/loginUrl.action?redirectURL=https://cloud.189.cn/web/redirect.html'
-    );
-    let captchaToken = resp1.data.match(/captchaToken' value='(.+?)'/);
-    if (captchaToken == null) throw 'Not found captchaToken';
-    let lt = resp1.data.match(/lt = "(.+?)"/);
-    if (lt == null) throw 'Not found lt';
-    let returnUrl = resp1.data.match(/returnUrl = '(.+?)'/);
-    if (returnUrl == null) throw 'Not found returnUrl';
-    let paramId = resp1.data.match(/paramId = "(.+?)"/);
-    if (paramId == null) throw 'Not found paramId';
-    let j_rsakey = resp1.data.match(/j_rsaKey" value="(\S+)"/);
-    if (j_rsakey == null) throw 'Not found j_rsakey';
-    rsa_key = `-----BEGIN PUBLIC KEY-----\\n${j_rsakey[1]}\\n-----END PUBLIC KEY-----`;
-    let JSEncrypt =
-      await require('https://cdn.jsdelivr.net/gh/travist/jsencrypt@master/bin/jsencrypt.min.js');
-    const jse = new JSEncrypt();
-    jse.setKey(j_rsakey[1]);
-    let b64tohex = function (a) {
-      let b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-        b64pad = '=',
-        BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
-      let b,
-        c,
-        d = '',
-        e = 0;
-      let int2char = function (a) {
-        return BI_RM.charAt(a);
-      };
-      for (b = 0; b < a.length && a.charAt(b) != b64pad; ++b)
-        (v = b64map.indexOf(a.charAt(b))),
-          v < 0 ||
-            (e =
-              0 == e
-                ? ((d += int2char(v >> 2)), (c = 3 & v), 1)
-                : 1 == e
-                ? ((d += int2char((c << 2) | (v >> 4))), (c = 15 & v), 2)
-                : 2 == e
-                ? ((d += int2char(c)), (d += int2char(v >> 2)), (c = 3 & v), 3)
-                : ((d += int2char((c << 2) | (v >> 4))), (d += int2char(15 & v)), 0));
-      return 1 == e && (d += int2char(c << 2)), d;
-    };
-    let resp2 = await axios.post(
-      'https://open.e.189.cn/api/logbox/oauth2/loginSubmit.do',
-      {
-        appKey: 'cloud',
-        accountType: '01',
-        userName: `{RSA}${b64tohex(jse.encrypt(param.name))}`,
-        password: `{RSA}${b64tohex(jse.encrypt(param.pwd))}`,
-        validateCode: '',
-        captchaToken: captchaToken[1],
-        returnUrl: returnUrl[1],
-        mailSuffix: '@189.cn',
-        paramId: paramId[1]
-      },
-      {
-        transformRequest: [
-          function (data) {
-            let ret = '';
-            for (let it in data) {
-              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+  try {
+    let resp = await axios.get('https://cloud.189.cn/api/portal/listShares.action?noCache=0.6801990928852892&pageNum=1&pageSize=30&shareType=1', {
+      headers: headers
+    });
+    if (resp.data.res_message === '成功') return true;
+  } catch (error) {
+    if (error.message === 'Request failed with status code 400') {
+      if (param.name && param.pwd) {
+        let resp1 = await axios.get(
+          'https://cloud.189.cn/api/portal/loginUrl.action?redirectURL=https://cloud.189.cn/web/redirect.html'
+        );
+        let captchaToken = resp1.data.match(/captchaToken' value='(.+?)'/);
+        if (captchaToken == null) throw 'Not found captchaToken';
+        let lt = resp1.data.match(/lt = "(.+?)"/);
+        if (lt == null) throw 'Not found lt';
+        let returnUrl = resp1.data.match(/returnUrl = '(.+?)'/);
+        if (returnUrl == null) throw 'Not found returnUrl';
+        let paramId = resp1.data.match(/paramId = "(.+?)"/);
+        if (paramId == null) throw 'Not found paramId';
+        let j_rsakey = resp1.data.match(/j_rsaKey" value="(\S+)"/);
+        if (j_rsakey == null) throw 'Not found j_rsakey';
+        rsa_key = `-----BEGIN PUBLIC KEY-----\\n${j_rsakey[1]}\\n-----END PUBLIC KEY-----`;
+        let JSEncrypt =
+          await require('https://cdn.jsdelivr.net/gh/travist/jsencrypt@master/bin/jsencrypt.min.js');
+        const jse = new JSEncrypt();
+        jse.setKey(j_rsakey[1]);
+        let b64tohex = function (a) {
+          let b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+            b64pad = '=',
+            BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
+          let b,
+            c,
+            d = '',
+            e = 0;
+          let int2char = function (a) {
+            return BI_RM.charAt(a);
+          };
+          for (b = 0; b < a.length && a.charAt(b) != b64pad; ++b)
+            (v = b64map.indexOf(a.charAt(b))),
+              v < 0 ||
+                (e =
+                  0 == e
+                    ? ((d += int2char(v >> 2)), (c = 3 & v), 1)
+                    : 1 == e
+                    ? ((d += int2char((c << 2) | (v >> 4))), (c = 15 & v), 2)
+                    : 2 == e
+                    ? ((d += int2char(c)), (d += int2char(v >> 2)), (c = 3 & v), 3)
+                    : ((d += int2char((c << 2) | (v >> 4))), (d += int2char(15 & v)), 0));
+          return 1 == e && (d += int2char(c << 2)), d;
+        };
+        let resp2 = await axios.post(
+          'https://open.e.189.cn/api/logbox/oauth2/loginSubmit.do',
+          {
+            appKey: 'cloud',
+            accountType: '01',
+            userName: `{RSA}${b64tohex(jse.encrypt(param.name))}`,
+            password: `{RSA}${b64tohex(jse.encrypt(param.pwd))}`,
+            validateCode: '',
+            captchaToken: captchaToken[1],
+            returnUrl: returnUrl[1],
+            mailSuffix: '@189.cn',
+            paramId: paramId[1]
+          },
+          {
+            transformRequest: [
+              function (data) {
+                let ret = '';
+                for (let it in data) {
+                  ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+                }
+                return ret.substr(0, ret.length - 1);
+              }
+            ],
+            headers: {
+              'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/76.0',
+              Referer: 'https://open.e.189.cn/',
+              lt: lt[1]
             }
-            return ret.substr(0, ret.length - 1);
           }
-        ],
-        headers: {
-          'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/76.0',
-          Referer: 'https://open.e.189.cn/',
-          lt: lt[1]
-        }
-      }
-    );
-    if (/登录成功/.test(resp2.data.msg)) {
-      await axios.get(resp2.data.toUrl);
-      return true;
-    } else return false;
+        );
+        if (/登录成功/.test(resp2.data.msg)) {
+          await axios.get(resp2.data.toUrl);
+          return true;
+        } else return false;
+      } else throw error;
+    }
   }
 };
 
