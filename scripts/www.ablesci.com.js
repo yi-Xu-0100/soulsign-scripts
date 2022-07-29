@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              科研通
 // @namespace         https://soulsign.inu1255.cn/scripts/414
-// @version           1.0.0
+// @version           1.0.1
 // @author            yi-Xu-0100
 // @loginURL          https://www.ablesci.com/my/info
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/科研通
@@ -14,7 +14,7 @@
 /**
  * @file 科研通签到脚本
  * @author yi-Xu-0100
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
@@ -37,7 +37,11 @@ let run = async function (param) {
   if (!(await check(param))) throw '需要登录';
   let resp = await axios.get('https://www.ablesci.com/');
   if (/class="sign-no" style=" display: none "/.test(resp.data)) return '重复签到';
-  let resp1 = await axios.get('https://www.ablesci.com/user/sign');
+  let resp1 = await axios.get('https://www.ablesci.com/user/sign', {
+    headers: {
+      Referer: 'https://www.ablesci.com/'
+    }
+  });
   if (resp1.data.code === 0) return `签到奖励: ${resp1.data.data.signpoint} 积分`;
   else if (/签到失败，您今天已于 (.*)? 签到。/.test(resp1.data.msg)) return '重复签到';
   else throw resp1.data;
@@ -64,7 +68,7 @@ let check = async function (param) {
             for (let it in data) {
               ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
             }
-            return ret.substr(0, ret.length - 1);
+            return ret.substring(0, ret.length - 1);
           }
         ]
       }
