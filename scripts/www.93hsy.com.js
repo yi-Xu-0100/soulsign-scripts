@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              好书友签到
 // @namespace         https://soulsign.inu1255.cn/scripts/185
-// @version           1.1.1
+// @version           1.1.2
 // @author            yi-Xu-0100
 // @loginURL          https://www.93hsy.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/好书友签到
@@ -17,7 +17,7 @@
  * @file 好书友签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 /**
@@ -107,7 +107,7 @@ let check = async function (param) {
               for (let it in data) {
                 ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
               }
-              return ret.substr(0, ret.length - 1);
+              return ret.substring(0, ret.length - 1);
             }
           ],
           headers: {

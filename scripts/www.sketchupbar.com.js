@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              sketchupbar
 // @namespace         https://soulsign.inu1255.cn/scripts/198
-// @version           1.0.6
+// @version           1.0.7
 // @author            yi-Xu-0100
 // @loginURL          https://www.sketchupbar.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/sketchupbar
@@ -12,7 +12,7 @@
 /**
  * @file sketchupbar签到脚本
  * @author yi-Xu-0100
- * @version 1.0.6
+ * @version 1.0.7
  */
 
 /**
@@ -52,7 +52,7 @@ let run = async function (param) {
       rewards = rewards + resp.data.name + '，';
       resp = await axios.post('https://www.sketchupbar.com/plugin.php?id=k_misign:get_zhuanpan');
     }
-    rewards = rewards.substr(0, rewards.length - 1);
+    rewards = rewards.substring(0, rewards.length - 1);
     return rewards;
   } else throw '未成功签到';
 };

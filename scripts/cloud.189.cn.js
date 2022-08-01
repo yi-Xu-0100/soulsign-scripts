@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              cloud189签到
 // @namespace         https://soulsign.inu1255.cn/scripts/604
-// @version           1.0.6
+// @version           1.0.7
 // @author            yi-Xu-0100
 // @loginURL          https://cloud.189.cn/web/login.html
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/cloud189签到
@@ -18,7 +18,7 @@
  * @file cloud189签到脚本
  * @author yi-Xu-0100
  * @author t00t00-crypto
- * @version 1.0.6
+ * @version 1.0.7
  */
 
 /**
@@ -148,7 +148,7 @@ let check = async function (param) {
                 for (let it in data) {
                   ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
                 }
-                return ret.substr(0, ret.length - 1);
+                return ret.substring(0, ret.length - 1);
               }
             ],
             headers: {

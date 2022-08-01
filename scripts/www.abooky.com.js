@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name              阅次元签到
 // @namespace         https://soulsign.inu1255.cn/scripts/174
-// @version           1.0.5
+// @version           1.0.6
 // @author            yi-Xu-0100
 // @loginURL          https://www.abooky.com/member.php?mod=logging&action=login
 // @updateURL         https://soulsign.inu1255.cn/script/yi-Xu-0100/阅次元签到
@@ -15,7 +15,7 @@
  * @file 阅次元签到脚本
  * @author yi-Xu-0100
  * @author Vicrack
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 /**
@@ -82,7 +82,7 @@ exports.check = async function (param) {
             for (let it in data) {
               ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
             }
-            return ret.substr(0, ret.length - 1);
+            return ret.substring(0, ret.length - 1);
           }
         ],
         headers: {
