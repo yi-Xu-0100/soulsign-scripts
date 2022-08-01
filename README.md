@@ -46,12 +46,12 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 | :----------------------------: | :---------------------------: | :---------: |
 |   [geekhub 签到脚本 V1.2.0]    |              无               |     无      |
 |    [忍者云签到脚本 V1.0.11]    |       帐号密码自动登陆        |     无      |
-|    [阅次元签到脚本 V1.0.5]     | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
-|    [好书友签到脚本 V1.1.1]     | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|    [阅次元签到脚本 V1.0.6]     | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
+|    [好书友签到脚本 V1.1.2]     | 帐号密码自动登陆 ( MD5 密码 ) |     无      |
 |     [聚创签到脚本 V1.0.8]      |       帐号密码自动登陆        |     无      |
 |   [力扣中国签到脚本 V1.0.4]    |              无               |     无      |
 |    [GORPG 签到脚本 V1.0.2]     |              无               |     无      |
-| [sketchupbar 签到脚本 V1.0.6]  |              无               |     无      |
+| [sketchupbar 签到脚本 V1.0.7]  |              无               |     无      |
 |  [什么值得买签到脚本 V1.0.2]   |              无               |     无      |
 |  [网易云音乐签到脚本 V1.0.6]   |              无               |     无      |
 |    [威锋网签到脚本 V2.0.0]     |              无               | 获取 cookie |
@@ -71,18 +71,18 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 |     [几鸡签到脚本 V1.0.0]      |       帐号密码自动登陆        |     无      |
 |    [小木虫签到脚本 V1.1.3]     |       帐号密码自动登陆        |     无      |
 | [bilibili 直播签到脚本 V1.0.3] |              无               |     无      |
-|   [cloud189 签到脚本 V1.0.6]   |       帐号密码自动登陆        |     无      |
+|   [cloud189 签到脚本 V1.0.7]   |       帐号密码自动登陆        |     无      |
 |   [酷音论坛签到脚本 V1.0.0]    |                               |     无      |
 |  [凌云风账号签到脚本 V1.0.1]   |                               |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
-[阅次元签到脚本 v1.0.5]: https://soulsign.inu1255.cn/scripts/174
-[好书友签到脚本 v1.1.1]: https://soulsign.inu1255.cn/scripts/185
+[阅次元签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/174
+[好书友签到脚本 v1.1.2]: https://soulsign.inu1255.cn/scripts/185
 [聚创签到脚本 v1.0.8]: https://soulsign.inu1255.cn/scripts/186
 [力扣中国签到脚本 v1.0.4]: https://soulsign.inu1255.cn/scripts/191
 [gorpg 签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/192
-[sketchupbar 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/198
+[sketchupbar 签到脚本 v1.0.7]: https://soulsign.inu1255.cn/scripts/198
 [什么值得买签到脚本 v1.0.2]: https://soulsign.inu1255.cn/scripts/206
 [网易云音乐签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/233
 [威锋网签到脚本 v2.0.0]: https://soulsign.inu1255.cn/scripts/235
@@ -102,7 +102,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 [几鸡签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/480
 [小木虫签到脚本 v1.1.3]: https://soulsign.inu1255.cn/scripts/537
 [bilibili 直播签到脚本 v1.0.3]: https://soulsign.inu1255.cn/scripts/590
-[cloud189 签到脚本 v1.0.6]: https://soulsign.inu1255.cn/scripts/604
+[cloud189 签到脚本 v1.0.7]: https://soulsign.inu1255.cn/scripts/604
 [酷音论坛签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/606
 [凌云风账号签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/607
 
