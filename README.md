@@ -130,6 +130,8 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 - 感谢 [NobyDa](https://github.com/NobyDa) 创作的 [爱奇艺签到脚本](https://github.com/NobyDa/Script/blob/42e6e1978fed46f531666d0db096b67858592fda/iQIYI-DailyBonus/iQIYI.js) !
 - 感谢 [andyyelu](https://github.com/andyyelu/) 创作的 [小木虫签到脚本](https://github.com/andyyelu/muchong_checkin) !
 - 感谢 [t00t00-crypto](https://github.com/t00t00-crypto) 创作的 [cloud189 签到脚本](https://github.com/t00t00-crypto/cloud189-action/blob/master/checkin.py) ！
+- 感谢 [Anonym-w](https://github.com/Anonym-w) 创作的 [阿里云盘签到脚本](https://github.com/Anonym-w/autoSigninAliyun/blob/main/autoSignin.js) ！
+- 感谢 [mrabit](https://github.com/mrabit) 创作的 [阿里云盘签到脚本](https://github.com/mrabit/aliyundriveDailyCheck/blob/master/autoSignin.js) ！
 
 ## License
 
