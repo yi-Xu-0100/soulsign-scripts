@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>阿里云签到脚本 - Documentation</title>
+    <title>阿里云盘签到脚本 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">阿里云签到脚本</h1>
+    <h1 class="page-title">阿里云盘签到脚本</h1>
     
 
     
@@ -51,7 +51,9 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>本脚本是 <a href="https://github.com/inu1255">inu1255</a> 所创造。</p></div>
+            <div class="description"><p>本脚本借鉴 <a href="https://github.com/Anonym-w/autoSigninAliyun/blob/main/autoSignin.js">Anonym-w 的 autoSigninAliyun</a> 和 <a href="https://github.com/mrabit/aliyundriveDailyCheck">mrabit 的 aliyundriveDailyCheck</a>，需要登录网页版阿里云盘，进入 F12 控制台，使用 <code>JSON.parse(localStorage.token).refresh_token</code> 获取 <code>refresh_token</code> 。</p>
+<p>脚本内容讨论请转至：<a href="https://github.com/yi-Xu-0100/soulsign-scripts/issues">仓库 issue</a></p>
+<p>签到插件讨论请转至：<a href="https://github.com/inu1255/soulsign-chrome/issues">官方 issue</a></p></div>
         
 
         
@@ -93,7 +95,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="club.aliyun.com.js.html">club.aliyun.com.js</a>, <a href="club.aliyun.com.js.html#line22">line 22</a>
+        <a href="www.aliyundrive.com.js.html">www.aliyundrive.com.js</a>, <a href="www.aliyundrive.com.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -171,7 +173,7 @@
             
                 <td class="default">
                 
-                    club.aliyun.com
+                    [www.aliyundrive.com, auth.aliyundrive.com, member.aliyundrive.com]
                 
                 </td>
             
@@ -255,7 +257,7 @@
             
                 <td class="default">
                 
-                    https://soulsign.inu1255.cn/scripts/228
+                    https://soulsign.inu1255.cn/scripts/706
                 
                 </td>
             
@@ -297,7 +299,7 @@
             
                 <td class="default">
                 
-                    https://account.aliyun.com/login/qr_login.htm?oauth_callback=https%3A%2F%2Fclub.aliyun.com%2F%23%2F
+                    https://www.aliyundrive.com/sign/in
                 
                 </td>
             
@@ -339,13 +341,51 @@
             
                 <td class="default">
                 
-                    https://soulsign.inu1255.cn/script/inu1255/阿里云签到
+                    https://soulsign.inu1255.cn/script/yi-Xu-0100/阿里云盘签到脚本
                 
                 </td>
             
 
             <td class="description last">
                 <p>脚本更新链接</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>refresh_token</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>refresh_token</p>
                 
             </td>
         </tr>

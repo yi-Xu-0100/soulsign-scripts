@@ -75,6 +75,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 |   [酷音论坛签到脚本 V1.0.0]    |                                    |     无      |
 |  [凌云风账号签到脚本 V1.0.1]   |                                    |     无      |
 | [书香门第论坛签到脚本 V1.0.1]  | 帐号密码自动登陆（gbk 编码用户名） |     无      |
+|   [阿里云盘签到脚本 V1.0.1]    |           Refresh_token            |     无      |
 
 [geekhub 签到脚本 v1.2.0]: https://soulsign.inu1255.cn/scripts/172
 [忍者云签到脚本 v1.0.11]: https://soulsign.inu1255.cn/scripts/173
@@ -107,6 +108,7 @@ yi-Xu-0100 创作的签到测试脚本集合地址：<https://soulsign.inu1255.c
 [酷音论坛签到脚本 v1.0.0]: https://soulsign.inu1255.cn/scripts/606
 [凌云风账号签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/607
 [书香门第论坛签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/690
+[阿里云盘签到脚本 v1.0.1]: https://soulsign.inu1255.cn/scripts/706
 
 ## 压缩包(build[version].zip)
 
