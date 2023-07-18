@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-${{ steps.info.outputs.key }}-cache-
 
       - name: Mirror the GitHub repos to Gitee with cache
-        uses: Yikun/hub-mirror-action@v1.2
+        uses: Yikun/hub-mirror-action@v1.3
         with:
           src: github/yi-Xu-0100
           dst: gitee/yiXu0100
